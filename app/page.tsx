@@ -2,24 +2,24 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useInView, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Terminal, Anchor, Shield, Cpu, ChevronDown, Radar, SkipForward, Map as MapIcon, Compass } from 'lucide-react';
+import { Terminal, Anchor, Shield, Cpu, ChevronDown, Radar, SkipForward, Map as MapIcon, Compass, Mail, Linkedin, Github, ArrowUp } from 'lucide-react';
 
 // --- VISUALS: CYBER PIRI REIS LAYER (Siber Portolan Haritası) ---
 // Piri Reis haritalarındaki o meşhur çizgileri (Rhumb lines) ve kıyı şeritlerini
 // dijital bir okyanus estetiğiyle birleştirir.
 const CyberPiriReisMap = () => (
-  <div className="absolute inset-0 pointer-events-none z-0 opacity-30 mix-blend-screen">
+  <div className="absolute inset-0 pointer-events-none z-0 opacity-75 mix-blend-overlay">
     <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <defs>
         <linearGradient id="coastGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(6,182,212,0)" />
-          <stop offset="50%" stopColor="rgba(6,182,212,0.1)" />
-          <stop offset="100%" stopColor="rgba(6,182,212,0)" />
+          <stop offset="0%" stopColor="rgba(245,158,11,0.12)" />
+          <stop offset="50%" stopColor="rgba(248,181,67,0.32)" />
+          <stop offset="100%" stopColor="rgba(245,158,11,0.12)" />
         </linearGradient>
       </defs>
 
       {/* 1. RHUMB LINES (Kerteriz Hatları - Piri Reis Stili) */}
-      <g stroke="currentColor" strokeWidth="0.5" className="text-cyan-800/40">
+      <g stroke="currentColor" strokeWidth="0.8" className="text-amber-100/80">
         {/* Merkezden yayılan ışınlar */}
         <line x1="50%" y1="50%" x2="0%" y2="0%" />
         <line x1="50%" y1="50%" x2="100%" y2="0%" />
@@ -43,19 +43,19 @@ const CyberPiriReisMap = () => (
 
       {/* 3. PİRİ REİS RÜZGAR GÜLLERİ (Compass Roses) */}
       {/* Sol Üst */}
-      <g transform="translate(100, 150)" className="text-cyan-600/30">
+      <g transform="translate(100, 150)" className="text-amber-100/80">
         <circle r="40" fill="none" stroke="currentColor" strokeWidth="1" />
         <path d="M0,-30 L5,-5 L30,0 L5,5 L0,30 L-5,5 L-30,0 L-5,-5 Z" fill="currentColor" />
       </g>
       
       {/* Sağ Alt */}
-      <g transform="translate(1400, 700)" className="text-cyan-600/30">
+      <g transform="translate(1400, 700)" className="text-amber-100/80">
         <circle r="60" fill="none" stroke="currentColor" strokeWidth="1" />
         <path d="M0,-50 L8,-8 L50,0 L8,8 L0,50 L-8,8 L-50,0 L-8,-8 Z" fill="currentColor" />
       </g>
 
       {/* Merkez (Ana) Pusula - Sayfa ortasında büyük ve silik */}
-      <g style={{ transformBox: 'fill-box', transformOrigin: 'center' }} transform="translate(50%, 50%) scale(4)" className="text-cyan-900/10">
+      <g style={{ transformBox: 'fill-box', transformOrigin: 'center' }} transform="translate(50%, 50%) scale(4)" className="text-amber-100/40">
         <path d="M0,-20 L2,-2 L20,0 L2,2 L0,20 L-2,2 L-20,0 L-2,-2 Z" fill="currentColor" />
         <circle r="22" fill="none" stroke="currentColor" strokeWidth="0.2" strokeDasharray="1 1" />
       </g>
@@ -71,16 +71,32 @@ const LightCaustics = () => (
   </div>
 );
 
+// Parchment texture to echo the original Piri Reis map but keep it subtle under the sonar UI
+const ParchmentOverlay = () => (
+  <div className="absolute inset-0 pointer-events-none z-0 mix-blend-soft-light opacity-90">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 40% 35%, rgba(255, 230, 200, 0.2), transparent 45%),
+          radial-gradient(circle at 70% 70%, rgba(214, 162, 92, 0.18), transparent 50%),
+          repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, rgba(0,0,0,0.04) 3px 4px),
+          repeating-linear-gradient(-45deg, rgba(0,0,0,0.03) 0 3px, rgba(255,255,255,0.03) 4px 6px)
+        `,
+        backgroundBlendMode: 'soft-light, soft-light, overlay, overlay'
+      }}
+    />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(116,66,41,0.12),transparent_60%),radial-gradient(circle_at_20%_80%,rgba(79,70,229,0.07),transparent_55%)]" />
+  </div>
+);
+
 /**
  * COMPONENT: Code Column
  */
 const CodeColumn = ({ isFrozen }: { isFrozen: boolean }) => {
-  const [mounted, setMounted] = useState(false);
-  const [columnData, setColumnData] = useState<{ duration: string; delay: string; opacity: number; snippets: string[]; } | null>(null);
-
-  useEffect(() => {
+  const [columnData] = useState(() => {
     const allSnippets = [
-      "public static void main", "System.out.println(x);", "@Autowired service;", 
+      "public static void main", "System.out.println(x);", "@Autowired service;",
       "List<String> data;", "stream().filter(i -> i > 0)", "throw new Exception();",
       "const app = async () =>", "import { useState } from 'react';", "console.log(debug);",
       "interface Props { id: number }", "export default class Node", "useEffect(() => {}, [])",
@@ -90,22 +106,19 @@ const CodeColumn = ({ isFrozen }: { isFrozen: boolean }) => {
       "print(f'Error: {e}')", "async def get_data():", "return [x for x in list]",
       "0x4F3A22", "Hull_Integrity: 98%", "Decrypting...", "PING 127.0.0.1"
     ];
-
-    const randomSnippets = Array.from({ length: 60 }).map(() => allSnippets[Math.floor(Math.random() * allSnippets.length)]);
-
-    setColumnData({
+    const randomSnippets = Array.from({ length: 60 }).map(
+      () => allSnippets[Math.floor(Math.random() * allSnippets.length)]
+    );
+    return {
       duration: `${15 + Math.random() * 15}s`,
       delay: `-${Math.random() * 10}s`,
       opacity: 0.3 + Math.random() * 0.4,
       snippets: randomSnippets
-    });
-    setMounted(true);
-  }, []);
-
-  if (!mounted || !columnData) return <div className="flex-1"></div>;
+    };
+  });
 
   return (
-    <div 
+    <div
       className="flex flex-col gap-1 whitespace-nowrap text-[10px] md:text-xs font-mono"
       style={{
         opacity: columnData.opacity,
@@ -137,7 +150,11 @@ const CodeBackground = ({ phase }: { phase: string }) => {
 const FalseTargets = ({ active }: { active: boolean }) => {
   const [targets, setTargets] = useState<{id: number, x: number, y: number}[]>([]);
   useEffect(() => {
-    if (!active) { setTargets([]); return; }
+    if (!active) { 
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTargets([]); 
+      return; 
+    }
     const interval = setInterval(() => {
       const newTarget = { id: Math.random(), x: Math.random() * 80 + 10, y: Math.random() * 80 + 10 };
       setTargets(prev => [...prev.slice(-3), newTarget]); 
@@ -212,24 +229,23 @@ const PeriscopeHUD = ({ phase }: { phase: 'scanning' | 'locking' | 'identified' 
 };
 
 const Particulates = ({ reduceMotion = false }: { reduceMotion?: boolean }) => {
-  const [particles, setParticles] = useState<{ id: number; x: number; y: number; duration: number; size: number }[]>([]);
-  useEffect(() => {
-    if (reduceMotion) return;
+  const [particles] = useState(() => {
     const w = typeof window !== 'undefined' ? window.innerWidth : 1000;
     const h = typeof window !== 'undefined' ? window.innerHeight : 1000;
-    setParticles(Array.from({ length: 30 }).map((_, i) => ({
-      id: i, x: Math.random() * w, y: Math.random() * h, duration: Math.random() * 10 + 10, size: Math.random() * 4 + 1,
-    })));
-  }, [reduceMotion]);
+    return Array.from({ length: 30 }).map((_, i) => ({
+      id: i, x: Math.random() * w, y: Math.random() * h, duration: Math.random() * 10 + 10, size: Math.random() * 4 + 1, drift: -(Math.random() * 100 + 20),
+    }));
+  });
 
   if (reduceMotion) return null;
+
   
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {particles.map((p) => (
         <motion.div
           key={p.id} className="absolute bg-cyan-200 rounded-full opacity-10"
-          initial={{ x: p.x, y: p.y }} animate={{ y: [null, Math.random() * -100], opacity: [0.1, 0.3, 0.1] }}
+          initial={{ x: p.x, y: p.y }} animate={{ y: [p.y, p.y + p.drift], opacity: [0.1, 0.3, 0.1] }}
           transition={{ duration: p.duration, repeat: Infinity, ease: "linear" }} style={{ width: p.size, height: p.size }}
         />
       ))}
@@ -271,9 +287,9 @@ const projects = [
 ];
 
 const signals = [
-  { label: "Email", value: "gtanagardigil@gmail.com", href: "mailto:gtanagardigil@gmail.com" },
-  { label: "LinkedIn", value: "linkedin.com/in/gorkemtanagardigil", href: "https://www.linkedin.com/in/gorkemtanagardigil" },
-  { label: "GitHub", value: "github.com/gorkem-t", href: "https://github.com/gorkem-t" },
+  { label: "Email", value: "gtanagardigil@gmail.com", href: "mailto:gtanagardigil@gmail.com", icon: Mail },
+  { label: "LinkedIn", value: "linkedin.com/in/gorkemtanagardigil", href: "https://www.linkedin.com/in/gorkemtanagardigil", icon: Linkedin },
+  { label: "GitHub", value: "github.com/gorkem-t", href: "https://github.com/gorkem-t", icon: Github },
 ];
 
 const navLinks = [
@@ -292,6 +308,7 @@ export default function DeepDivePortfolio() {
 
   useEffect(() => {
     if (prefersReducedMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIntroPhase('finished');
       return;
     }
@@ -345,16 +362,17 @@ export default function DeepDivePortfolio() {
         )}
       </AnimatePresence>
 
-      <div className={`min-h-[400vh] bg-[#020617] text-slate-200 font-sans relative selection:bg-cyan-500 selection:text-black ${introPhase !== 'finished' ? 'h-screen overflow-hidden' : ''}`}>
+      <div className={`min-h-[400vh] bg-[#0a1f36] text-slate-200 font-sans relative selection:bg-cyan-500 selection:text-black ${introPhase !== 'finished' ? 'h-screen overflow-hidden' : ''}`}>
         
         <div className="fixed inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#020617] to-black" />
-          
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0c2b4f] via-[#0b305a] to-[#081b36]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.14),transparent_40%),radial-gradient(circle_at_50%_60%,rgba(8,47,73,0.16),transparent_55%)] mix-blend-screen" />
+          <ParchmentOverlay />
           {/* 3. NEW VISUAL: CYBER PIRI REIS MAP (Daha belirgin) */}
           <CyberPiriReisMap />
           
           <LightCaustics />
-          <Particulates reduceMotion={prefersReducedMotion} />
+          <Particulates reduceMotion={prefersReducedMotion ?? undefined} />
         </div>
 
         {/* 4. BUG FIX: DEPTH GAUGE ON SKIP (Intro biter bitmez animasyonla gelir) */}
@@ -559,9 +577,14 @@ export default function DeepDivePortfolio() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {signals.map((signal) => (
-                  <a key={signal.label} href={signal.href} className="group bg-[#0a1529]/70 border border-cyan-900/40 rounded-xl p-5 hover:border-cyan-500/60 transition-colors shadow-lg backdrop-blur-sm">
-                    <div className="text-sm font-mono text-cyan-400 mb-1 uppercase tracking-[0.3em]">{signal.label}</div>
-                    <div className="text-lg text-white group-hover:text-cyan-200 transition-colors break-words">{signal.value}</div>
+                  <a key={signal.label} href={signal.href} className="group bg-[#0a1529]/70 border border-cyan-900/40 rounded-xl p-5 hover:border-cyan-500/60 transition-colors shadow-lg backdrop-blur-sm flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-cyan-900/40 border border-cyan-700 flex items-center justify-center text-cyan-300 group-hover:text-white transition-colors">
+                      <signal.icon size={22} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <div className="sr-only">{signal.label}</div>
+                      <div className="text-lg text-white group-hover:text-cyan-200 transition-colors break-words">{signal.value}</div>
+                    </div>
                   </a>
                 ))}
               </div>
@@ -580,6 +603,15 @@ export default function DeepDivePortfolio() {
           </section>
         </main>
       </div>
+      <motion.a
+        href="#top"
+        className="fixed bottom-8 right-8 z-40 bg-cyan-600 text-white px-4 py-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-300/60 flex items-center gap-2 hover:bg-cyan-500 transition-colors"
+        whileHover={{ y: -4 }}
+        whileTap={{ scale: 0.96 }}
+      >
+        <ArrowUp size={16} />
+        Surface
+      </motion.a>
     </>
   );
 }
