@@ -191,19 +191,19 @@ export const publications = [
 export const arsenalStacks = [
   {
     title: "Backend",
-    items: ["Java", "Kotlin", "Spring Framework", "Microservices"],
+    items: ["Java", "Kotlin", "Spring Framework", "Microservices", "REST API", "GraphQL", "Modulith Architecture"],
   },
   {
     title: "Cloud & DevOps",
-    items: ["AWS", "Kubernetes", "Docker", "Docker Swarm", "GitHub Actions"],
+    items: ["AWS", "Kubernetes", "Docker", "Docker Swarm", "GitHub Actions", "ArgoCD", "Datadog", "Portainer"],
   },
   {
     title: "Data",
     items: ["NoSQL", "RDBMS", "MySQL", "PostgreSQL","Redis", "MongoDB"],
   },
   {
-    title: "Messaging",
-    items: ["Message Broker", "RabbitMQ"],
+    title: "Artificial Intelligence",
+    items: ["Large Language Models", "Agentic Development", "Model Fine-tuning", "Retrieval-Augmented Generation (RAG)"],
   },
   {
     title: "Frontend",

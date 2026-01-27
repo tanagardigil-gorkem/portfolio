@@ -2,11 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Boxes, Cloud, Cpu, Database, MessageSquare,ShieldCheck } from "lucide-react";
+import { Boxes, Cloud, Cpu, Database, Brain,ShieldCheck } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import { arsenalStacks } from "../../data/portfolio";
 
-const stackIcons = [Cpu, Cloud, Database, MessageSquare, Boxes, ShieldCheck];
+const stackIcons = [Cpu, Cloud, Database, Brain, Boxes, ShieldCheck];
 
 export default function Arsenal() {
   return (
