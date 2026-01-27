@@ -30,7 +30,7 @@ export default function MissionLog() {
                     {mission.period}
                   </span>
                 </div>
-                <p className="text-slate-300 mb-6 leading-relaxed">{mission.summary}</p>
+                <p className="text-slate-200 mb-6 leading-relaxed">{mission.summary}</p>
                 <div className="flex flex-wrap gap-2">
                   {mission.tech.map((tech) => (
                     <span

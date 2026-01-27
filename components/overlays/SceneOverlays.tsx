@@ -97,7 +97,7 @@ const seededRandom = (seed: number) => {
 
 const Particulates = ({ reduceMotion = false }: { reduceMotion?: boolean }) => {
   const particles = useMemo(() => {
-    return Array.from({ length: 30 }).map((_, i) => {
+    return Array.from({ length: 15 }).map((_, i) => {
       const seed = i + 1;
       return {
         id: i,

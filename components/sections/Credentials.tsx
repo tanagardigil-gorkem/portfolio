@@ -8,7 +8,7 @@ export default function Credentials() {
   return (
     <section className="py-28">
       <Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-[#0a1529]/70 border border-cyan-900/40 rounded-xl p-6 shadow-lg backdrop-blur-sm">
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300 mb-4">
               Certifications

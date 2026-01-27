@@ -3,6 +3,7 @@
 import React from "react";
 import Hero from "./Hero";
 import Stats from "./Stats";
+import Origin from "./Origin";
 import Projects from "./Projects";
 import MissionLog from "./MissionLog";
 import Arsenal from "./Arsenal";
@@ -16,9 +17,10 @@ type PortfolioContentProps = {
 
 export default function PortfolioContent({ introPhase }: PortfolioContentProps) {
   return (
-    <main className="relative z-10 max-w-5xl mx-auto px-6">
+    <main id="main-content" className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
       <Hero introPhase={introPhase} />
       <Stats />
+      <Origin />
       <Projects />
       <MissionLog />
       <Arsenal />

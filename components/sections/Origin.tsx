@@ -20,7 +20,7 @@ export default function Origin() {
               <p className="text-cyan-500 font-mono text-sm mb-4">
                 Computer Engineer & Officer | 2010 - 2021
               </p>
-              <p className="text-slate-400 leading-relaxed mb-4">
+              <p className="text-slate-200 leading-relaxed mb-4">
                 Where resilience was engineered. Developed mission-critical Java systems where
                 stability was a necessity, not a feature. Implemented strict security encryption and
                 authorization protocols.

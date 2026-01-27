@@ -20,29 +20,27 @@ export default function Signals() {
             Signals
           </div>
           <h2 className="text-4xl font-bold text-white mb-2">Signals & Channels</h2>
-          <p className="text-cyan-200/70 max-w-2xl">
+          <p className="text-cyan-200 max-w-2xl">
             Direct lines for collaboration, advisories, and mission invites.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex justify-center gap-6">
           {signals.map((signal) => {
             const Icon = signalIcons[signal.label as keyof typeof signalIcons];
             return (
               <a
                 key={signal.label}
                 href={signal.href}
-                className="group bg-[#0a1529]/70 border border-cyan-900/40 rounded-2xl p-5 hover:border-cyan-500/60 transition-colors shadow-lg backdrop-blur-sm flex items-center gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1529]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#0a1529]/70 border border-cyan-900/40 rounded-2xl p-6 hover:border-cyan-500/60 hover:bg-cyan-900/20 transition-all shadow-lg backdrop-blur-sm flex flex-col items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1529]"
+                aria-label={`${signal.label}: ${signal.value}`}
               >
-                <div className="w-12 h-12 rounded-full bg-cyan-900/40 border border-cyan-700 flex items-center justify-center text-cyan-300 group-hover:text-white transition-colors">
-                  <Icon size={22} aria-hidden="true" />
+                <div className="w-16 h-16 rounded-full bg-cyan-900/40 border-2 border-cyan-700 flex items-center justify-center text-cyan-300 group-hover:text-white group-hover:border-cyan-500 transition-all group-hover:scale-110">
+                  <Icon size={28} aria-hidden="true" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/70">
-                    {signal.label}
-                  </div>
-                  <div className="text-lg text-white group-hover:text-cyan-200 transition-colors break-words">
-                    {signal.value}
-                  </div>
+                <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/70 group-hover:text-cyan-300 transition-colors">
+                  {signal.label}
                 </div>
               </a>
             );

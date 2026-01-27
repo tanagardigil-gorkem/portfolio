@@ -199,14 +199,18 @@ export const arsenalStacks = [
   },
   {
     title: "Data",
-    items: ["MongoDB", "NoSQL", "RDBMS", "MySQL", "Redis"],
+    items: ["NoSQL", "RDBMS", "MySQL", "PostgreSQL","Redis", "MongoDB"],
   },
   {
     title: "Messaging",
     items: ["Message Broker", "RabbitMQ"],
   },
   {
-    title: "Frontend & Testing",
-    items: ["Next.js", "Vue.js", "TypeScript", "JUnit"],
+    title: "Frontend",
+    items: ["HTML", "CSS", "TypeScript", "JavaScript","Next.js", "Vue.js","React"],
+  },
+  {
+    title: "Testing",
+    items: ["JUnit", "Vitest", "Jest"],
   },
 ];

@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import IntroSequence from "./intro/IntroSequence";
 import SceneOverlays from "./overlays/SceneOverlays";
+import Navigation from "./ui/Navigation";
+import SkipToContent from "./ui/SkipToContent";
 
 type IntroPhase = "scanning" | "locking" | "identified" | "finished";
 
@@ -16,6 +18,7 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
   const { scrollY } = useScroll();
   const prefersReducedMotion = useReducedMotion();
   const [depth, setDepth] = useState(0);
+  const [showSurfaceButton, setShowSurfaceButton] = useState(false);
   const [introPhase, setIntroPhase] = useState<IntroPhase>("scanning");
   const skippedRef = useRef(false);
 
@@ -24,13 +27,13 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
     if (skippedRef.current) return;
     const timerLock = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("locking");
-    }, 5000);
+    }, 2000);
     const timerIdentify = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("identified");
-    }, 9000);
+    }, 4000);
     const timerFinish = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("finished");
-    }, 12500);
+    }, 5500);
 
     return () => {
       clearTimeout(timerLock);
@@ -39,7 +42,12 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
     };
   }, [prefersReducedMotion]);
 
-  useEffect(() => scrollY.onChange((latest) => setDepth(Math.floor(latest / 5))), [scrollY]);
+  useEffect(() => {
+    return scrollY.onChange((latest) => {
+      setDepth(Math.floor(latest / 5));
+      setShowSurfaceButton(latest > 500);
+    });
+  }, [scrollY]);
 
   const handleSkip = () => {
     skippedRef.current = true;
@@ -52,7 +60,10 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
 
   return (
     <>
+      <SkipToContent />
       <IntroSequence introPhase={effectiveIntroPhase} onSkip={handleSkip} />
+
+      <Navigation visible={effectiveIntroPhase === "finished"} />
 
       <div
         className={`min-h-[400vh] bg-[#0a1f36] text-slate-200 font-sans relative selection:bg-cyan-500 selection:text-black ${
@@ -62,7 +73,7 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
         <SceneOverlays reduceMotion={prefersReducedMotion} />
 
         <motion.div
-          className="fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4 text-cyan-500/80 font-mono mix-blend-screen hidden md:flex"
+          className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-4 text-cyan-500/80 font-mono mix-blend-screen"
           initial={{ x: -100 }}
           animate={effectiveIntroPhase === "finished" ? { x: 0 } : { x: -100 }}
           transition={{ duration: 0.8, delay: effectiveIntroPhase === "finished" ? 0.2 : 0 }}
@@ -77,15 +88,24 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
         {children(introPhase)}
       </div>
 
-      <motion.a
-        href="#top"
-        className="fixed bottom-8 right-8 z-40 bg-cyan-600 text-white px-4 py-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-300/60 flex items-center gap-2 hover:bg-cyan-500 transition-colors"
-        whileHover={{ y: -4 }}
-        whileTap={{ scale: 0.96 }}
-      >
-        <ArrowUp size={16} />
-        Surface
-      </motion.a>
+      <AnimatePresence>
+        {showSurfaceButton && effectiveIntroPhase === "finished" && (
+          <motion.a
+            href="#top"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-8 right-8 z-40 bg-cyan-600 text-white px-4 py-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-300/60 flex items-center gap-2 hover:bg-cyan-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
+            whileHover={{ y: -4 }}
+            whileTap={{ scale: 0.96 }}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={16} aria-hidden="true" />
+            Surface
+          </motion.a>
+        )}
+      </AnimatePresence>
     </>
   );
 }

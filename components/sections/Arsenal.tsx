@@ -2,11 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Boxes, Cloud, Cpu, Database, MessageSquare } from "lucide-react";
+import { Boxes, Cloud, Cpu, Database, MessageSquare,ShieldCheck } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import { arsenalStacks } from "../../data/portfolio";
 
-const stackIcons = [Cpu, Cloud, Database, MessageSquare, Boxes];
+const stackIcons = [Cpu, Cloud, Database, MessageSquare, Boxes, ShieldCheck];
 
 export default function Arsenal() {
   return (
@@ -16,7 +16,7 @@ export default function Arsenal() {
           <h2 className="text-4xl font-bold mb-4 text-white">Technical Arsenal</h2>
           <p className="text-cyan-200/60">Instrumentation for high-pressure environments.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {arsenalStacks.map((stack, idx) => {
             const Icon = stackIcons[idx];
             return (
@@ -29,7 +29,7 @@ export default function Arsenal() {
                   <Icon aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">{stack.title}</h3>
-                <ul className="space-y-2 text-slate-400 text-sm font-mono">
+                <ul className="space-y-2 text-slate-300 text-sm font-mono">
                   {stack.items.map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_5px_cyan]" />
