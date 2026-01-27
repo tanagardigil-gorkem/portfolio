@@ -27,42 +27,117 @@ export const missionHistory = [
   {
     title: "Payroll Engine",
     role: "Senior Full Stack Developer",
-    period: "2023 - PRESENT",
+    period: "Mar 2023 - Present",
     summary:
-      "Orchestrating microservices on AWS EKS with hardened CI/CD pipelines. Performance tuning across MongoDB Atlas and on-prem.",
-    tech: ["Java/Spring Boot", "Kubernetes", "MongoDB", "Vue.js"],
+      "Delivered Spring Boot microservices on AWS EKS with CI/CD in GitHub Actions, optimizing MongoDB Atlas/on-prem performance and integrating RabbitMQ + Redis for reliable workflows.",
+    tech: [
+      "Spring Framework",
+      "Java",
+      "Kubernetes",
+      "AWS",
+      "MongoDB",
+      "RabbitMQ",
+      "Redis",
+      "GitHub Actions",
+    ],
   },
   {
-    title: "Fleet Control Systems",
-    role: "Lead Backend Engineer",
-    period: "2021 - 2023",
+    title: "Rightyon",
+    role: "Senior Software Developer",
+    period: "Feb 2022 - Mar 2023",
     summary:
-      "Rebuilt legacy naval logistics services into fault-tolerant APIs, reducing incident volume while improving observability and release cadence.",
-    tech: ["Java", "Kotlin", "PostgreSQL", "Grafana/Prometheus"],
+      "Built Spring Boot (Java 11) backends and designed relational schemas for complex web applications, prioritizing maintainability and scale.",
+    tech: ["Spring Framework", "Java", "MySQL", "RDBMS"],
+  },
+  {
+    title: "Oscorpex",
+    role: "Software Developer",
+    period: "Apr 2021 - Feb 2022",
+    summary:
+      "Shipped REST/GraphQL APIs, MQTT-based IoT integrations, and Android apps with GCP/Firebase services while mentoring junior developers.",
+    tech: ["Java", "GraphQL", "MQTT", "Android", "GCP", "Firebase"],
+  },
+  {
+    title: "Turkish Navy",
+    role: "Computer Engineer",
+    period: "Aug 2010 - Apr 2021",
+    summary:
+      "Engineered mission-critical Java systems with encryption/auth controls and stability-focused maintenance across on-prem and web platforms.",
+    tech: ["Java", "Spring Framework", "MySQL", "Security"],
   },
 ];
 
-export const projects = [
+export const featuredProjects = [
   {
-    name: "Subsurface Ops Console",
+    name: "Payroll Engine",
+    period: "Jan 2023 - Present",
     description:
-      "Command-and-control dashboard for distributed services with live health, deploy gates, and audit trails.",
-    tech: ["Next.js", "TypeScript", "WebSockets"],
+      "Microservice payroll platform with containerized delivery, message-driven integrations, and cloud infrastructure.",
+    tech: [
+      "Spring Framework",
+      "Java",
+      "Kubernetes",
+      "AWS",
+      "Docker Swarm",
+      "Message Broker",
+      "Redis",
+      "NoSQL",
+      "JUnit",
+    ],
     link: "#signals",
   },
   {
-    name: "HarborGuard Access",
+    name: "ServisRotam",
+    period: "Apr 2022 - Mar 2023",
     description:
-      "Zero-trust auth gateway with biometric fallback and policy-based routing for high-side networks.",
-    tech: ["Spring Boot", "Keycloak", "OPA"],
+      "Backend services and two Android applications delivered as a single platform.",
+    tech: [
+      "Spring Framework",
+      "Java",
+      "Message Broker",
+      "Docker",
+      "Cloud Computing",
+      "RDBMS",
+      "GCP",
+    ],
     link: "#signals",
   },
   {
-    name: "Tactical Playbooks",
-    description:
-      "LLM-powered runbooks that surface ranked mitigations for on-call incidents in under 60 seconds.",
-    tech: ["LLM/RAG", "Vector DB", "Python"],
+    name: "Sayiyo",
+    period: "Project",
+    description: "Backend services for a cloud-connected application.",
+    tech: [
+      "Spring Framework",
+      "Java",
+      "Message Broker",
+      "Cloud Computing",
+      "RDBMS",
+      "GCP",
+    ],
     link: "#signals",
+  },
+];
+
+export const additionalProjects = [
+  {
+    name: "Advanced Harpoon Weapon Control System (AHWCS) Simulator",
+    tech: ["Java"],
+  },
+  {
+    name: "Java Education (Turkcell)",
+    tech: ["Java"],
+  },
+  {
+    name: "Stock Management System",
+    tech: ["Spring Framework", "Java", "RDBMS", "GCP"],
+  },
+  {
+    name: "Testokur",
+    tech: ["Spring Framework", "Java", "Message Broker", "Cloud Computing", "RDBMS", "GCP"],
+  },
+  {
+    name: "Voyage Data Recorder",
+    tech: ["Java", "RDBMS", "GCP"],
   },
 ];
 
@@ -79,22 +154,59 @@ export const signals = [
   },
   {
     label: "GitHub",
-    value: "github.com/gorkem-t",
-    href: "https://github.com/gorkem-t",
+    value: "github.com/tanagardigil-gorkem",
+    href: "https://github.com/tanagardigil-gorkem",
+  },
+];
+
+export const certifications = [
+  {
+    title: "Using MongoDB with Java",
+    issuer: "MongoDB",
+    year: "2022",
+  },
+  {
+    title: "Kubernetes and Docker",
+    issuer: "Udemy",
+    year: "2023",
+  },
+];
+
+export const languages = [
+  { name: "Turkish", level: "Native" },
+  { name: "English", level: "Fluent" },
+  { name: "French", level: "Conversational" },
+  { name: "Luxembourgish", level: "Beginner" },
+];
+
+export const publications = [
+  {
+    title: "Light Fidelity (LiFi): New Era in Wireless Communication",
+    venue: "DTSS 2019 International Conference & Exhibition on Digital Transformation & Systems",
+    date: "Oct 23, 2019",
+    location: "METU",
   },
 ];
 
 export const arsenalStacks = [
   {
-    title: "Backend Core",
-    items: ["Java & Kotlin", "Spring Boot", "Microservices"],
+    title: "Backend",
+    items: ["Java", "Kotlin", "Spring Framework", "Microservices"],
   },
   {
-    title: "Data & AI",
-    items: ["MongoDB & MySQL", "RAG & LLM Integration", "Vector Databases"],
+    title: "Cloud & DevOps",
+    items: ["AWS", "Kubernetes", "Docker", "Docker Swarm", "GitHub Actions"],
   },
   {
-    title: "DevOps",
-    items: ["Kubernetes (EKS)", "Docker Swarm", "AWS & GCP"],
+    title: "Data",
+    items: ["MongoDB", "NoSQL", "RDBMS", "MySQL", "Redis"],
+  },
+  {
+    title: "Messaging",
+    items: ["Message Broker", "RabbitMQ"],
+  },
+  {
+    title: "Frontend & Testing",
+    items: ["Next.js", "Vue.js", "TypeScript", "JUnit"],
   },
 ];

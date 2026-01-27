@@ -2,15 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Cpu, Radar, Shield } from "lucide-react";
+import { Boxes, Cloud, Cpu, Database, MessageSquare } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import { arsenalStacks } from "../../data/portfolio";
 
-const stackIcons = [Cpu, Radar, Shield];
+const stackIcons = [Cpu, Cloud, Database, MessageSquare, Boxes];
 
 export default function Arsenal() {
   return (
-    <section id="arsenal" className="py-32">
+    <section id="arsenal" className="py-32 scroll-mt-24">
       <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Technical Arsenal</h2>
@@ -26,7 +26,7 @@ export default function Arsenal() {
                 className="bg-[#0a1529]/60 border border-cyan-900/30 p-6 rounded-xl hover:border-cyan-500/50 transition-colors shadow-lg backdrop-blur-sm"
               >
                 <div className="bg-[#112240] w-12 h-12 rounded-lg flex items-center justify-center text-cyan-400 mb-4 shadow-inner">
-                  <Icon />
+                  <Icon aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">{stack.title}</h3>
                 <ul className="space-y-2 text-slate-400 text-sm font-mono">

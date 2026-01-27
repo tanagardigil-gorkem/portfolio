@@ -6,7 +6,7 @@ import Stats from "./Stats";
 import Projects from "./Projects";
 import MissionLog from "./MissionLog";
 import Arsenal from "./Arsenal";
-import Origin from "./Origin";
+import Credentials from "./Credentials";
 import Signals from "./Signals";
 import FinalCta from "./FinalCta";
 
@@ -22,7 +22,7 @@ export default function PortfolioContent({ introPhase }: PortfolioContentProps) 
       <Projects />
       <MissionLog />
       <Arsenal />
-      <Origin />
+      <Credentials />
       <Signals />
       <FinalCta />
     </main>

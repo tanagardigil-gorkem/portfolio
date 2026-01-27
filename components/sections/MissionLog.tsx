@@ -7,12 +7,12 @@ import { missionHistory } from "../../data/portfolio";
 
 export default function MissionLog() {
   return (
-    <section id="mission-log" className="py-32">
+    <section id="mission-log" className="py-32 scroll-mt-24">
       <Reveal>
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px bg-cyan-900/50 flex-1" />
           <h2 className="text-2xl font-mono text-cyan-400 tracking-widest flex items-center gap-2">
-            <Terminal size={20} /> MISSION LOG
+            <Terminal size={20} aria-hidden="true" /> MISSION LOG
           </h2>
           <div className="h-px bg-cyan-900/50 flex-1" />
         </div>
