@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Map as MapIcon, ExternalLink } from "lucide-react";
 import { additionalProjects, featuredProjects } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 const containerVariants = {
   hidden: {},
@@ -16,6 +17,8 @@ const cardVariants = {
 };
 
 export default function Projects() {
+  const { t } = useTranslation();
+
   return (
     <section id="projects" className="py-32 scroll-mt-24">
       <motion.div
@@ -26,7 +29,7 @@ export default function Projects() {
       >
         <div className="flex items-center gap-3 mb-12 justify-center">
           <MapIcon className="text-cyan-400" size={20} aria-hidden="true" />
-          <h2 className="text-3xl font-bold text-white tracking-tight">Recent Operations</h2>
+          <h2 className="text-3xl font-bold text-white tracking-tight">{t.projects.title}</h2>
         </div>
 
         <motion.div
@@ -36,7 +39,7 @@ export default function Projects() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, idx) => (
             <motion.a
               key={project.name}
               variants={cardVariants}
@@ -54,7 +57,7 @@ export default function Projects() {
                 <span className="inline-block px-2 py-0.5 bg-cyan-950/60 border border-cyan-500/20 text-cyan-300/80 text-[10px] font-mono rounded mb-3">
                   {project.period}
                 </span>
-                <p className="text-slate-200 text-sm leading-relaxed mb-4">{project.description}</p>
+                <p className="text-slate-200 text-sm leading-relaxed mb-4">{t.projects.featured[idx]?.description ?? project.description}</p>
 
                 <div className="pt-4 border-t border-cyan-900/30">
                   <div className="flex flex-wrap gap-1.5">
@@ -81,16 +84,16 @@ export default function Projects() {
           className="mt-12 border border-cyan-900/40 rounded-2xl bg-[#0a1529]/50 p-6 backdrop-blur-sm"
         >
           <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300 mb-4">
-            Additional Projects
+            {t.projects.additionalTitle}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {additionalProjects.map((project) => (
+            {additionalProjects.map((project, idx) => (
               <div
                 key={project.name}
                 className="flex items-start justify-between gap-4 border border-cyan-900/30 rounded-xl p-4 bg-[#0a1529]/60 hover:border-cyan-800/60 transition-colors"
               >
                 <div>
-                  <div className="text-white font-semibold">{project.name}</div>
+                  <div className="text-white font-semibold">{t.projects.additional[idx]?.name ?? project.name}</div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {project.tech.map((item) => (
                       <span

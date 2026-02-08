@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { missionStats } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -41,12 +41,20 @@ const statMeta: { target: number; suffix: string }[] = [
 ];
 
 export default function Stats() {
+  const { t } = useTranslation();
+
+  const stats = [
+    { title: t.stats.yearsTitle, value: "12+", detail: t.stats.yearsDetail, target: 12, suffix: "+" },
+    { title: t.stats.incidentsTitle, value: "300+", detail: t.stats.incidentsDetail, target: 300, suffix: "+" },
+    { title: t.stats.deployTitle, value: t.stats.deployValue, detail: t.stats.deployDetail, target: 0, suffix: "" },
+  ];
+
   return (
     <section className="py-24">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {missionStats.map((stat, idx) => (
+        {stats.map((stat, idx) => (
           <motion.div
-            key={stat.title}
+            key={idx}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -54,8 +62,8 @@ export default function Stats() {
             whileHover={{ y: -4, borderColor: "rgba(6, 182, 212, 0.5)" }}
             className="bg-[#0a1529]/60 border border-cyan-900/40 rounded-xl p-8 shadow-lg backdrop-blur-sm text-center hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-shadow"
           >
-            {statMeta[idx].target > 0 ? (
-              <CountUp target={statMeta[idx].target} suffix={statMeta[idx].suffix} />
+            {stat.target > 0 ? (
+              <CountUp target={stat.target} suffix={stat.suffix} />
             ) : (
               <div className="text-5xl font-bold text-white mb-2">
                 {stat.value}

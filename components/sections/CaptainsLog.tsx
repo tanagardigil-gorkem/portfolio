@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BookOpen, Clock, ArrowRight, Tag } from "lucide-react";
 import { captainsLog } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 const MotionLink = motion.create(Link);
 
@@ -19,9 +20,15 @@ const cardVariants = {
 };
 
 export default function CaptainsLog() {
+  const { t } = useTranslation();
   const sortedPosts = [...captainsLog].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
+
+  const getPostTranslation = (slug: string) => {
+    const origIdx = captainsLog.findIndex((p) => p.slug === slug);
+    return t.captainsLog.posts[origIdx];
+  };
 
   return (
     <section id="captains-log" className="py-32 scroll-mt-24">
@@ -34,12 +41,12 @@ export default function CaptainsLog() {
       >
         <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/80 mb-3">
           <span className="w-8 h-px bg-cyan-500/50" />
-          Dispatches
+          {t.captainsLog.label}
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Captain&apos;s Log</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">{t.captainsLog.title}</h2>
         <p className="text-cyan-200/60 max-w-2xl mx-auto">
-          Field notes on engineering, architecture, and lessons learned from the deep.
+          {t.captainsLog.description}
         </p>
       </motion.div>
 
@@ -77,11 +84,11 @@ export default function CaptainsLog() {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
-                {post.title}
+                {getPostTranslation(post.slug)?.title ?? post.title}
               </h3>
 
               <p className="text-slate-300/80 text-sm leading-relaxed mb-4">
-                {post.excerpt}
+                {getPostTranslation(post.slug)?.excerpt ?? post.excerpt}
               </p>
 
               <div className="flex items-center justify-between">
@@ -97,7 +104,7 @@ export default function CaptainsLog() {
                   ))}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-mono text-cyan-400/60 group-hover:text-cyan-400 transition-colors">
-                  Read
+                  {t.captainsLog.read}
                   <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </div>
               </div>
@@ -105,7 +112,7 @@ export default function CaptainsLog() {
 
             {idx === 0 && (
               <div className="absolute top-4 right-4 px-2 py-0.5 bg-cyan-500/20 border border-cyan-500/30 rounded text-[9px] font-mono text-cyan-300 uppercase tracking-widest">
-                Latest
+                {t.captainsLog.latest}
               </div>
             )}
           </MotionLink>

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Boxes, Cloud, Cpu, Database, Brain, ShieldCheck } from "lucide-react";
 import { arsenalStacks } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 const stackIcons = [Cpu, Cloud, Database, Brain, Boxes, ShieldCheck];
 
@@ -20,6 +21,8 @@ const cardVariants = {
 };
 
 export default function Arsenal() {
+  const { t } = useTranslation();
+
   return (
     <section id="arsenal" className="py-32 scroll-mt-24">
       <motion.div
@@ -31,11 +34,11 @@ export default function Arsenal() {
       >
         <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/80 mb-3">
           <span className="w-8 h-px bg-cyan-500/50" />
-          Systems & Tools
+          {t.arsenal.subtitle}
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-4xl font-bold mb-4 text-white">Technical Arsenal</h2>
-        <p className="text-cyan-200/60">Instrumentation for high-pressure environments.</p>
+        <h2 className="text-4xl font-bold mb-4 text-white">{t.arsenal.title}</h2>
+        <p className="text-cyan-200/60">{t.arsenal.description}</p>
       </motion.div>
       <motion.div
         variants={containerVariants}
@@ -59,7 +62,7 @@ export default function Arsenal() {
                 <div className="bg-[#112240] w-12 h-12 rounded-lg flex items-center justify-center text-cyan-400 mb-4 shadow-inner group-hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-shadow">
                   <Icon aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{stack.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-4">{t.arsenal.stacks[idx] ?? stack.title}</h3>
                 <ul className="space-y-2 text-slate-300 text-sm font-mono">
                   {stack.items.map((item) => (
                     <li key={item} className="flex items-center gap-2">

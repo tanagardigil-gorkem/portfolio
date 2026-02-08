@@ -4,16 +4,26 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import Logo from "./Logo";
-import { navLinks } from "../../data/portfolio";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "../../lib/i18n/context";
 
 type NavigationProps = {
   visible: boolean;
 };
 
 export default function Navigation({ visible }: NavigationProps) {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const navLinks = [
+    { label: t.nav.missionLog, href: "#mission-log" },
+    { label: t.nav.arsenal, href: "#arsenal" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.captainsLog, href: "#captains-log" },
+    { label: t.nav.signals, href: "#signals" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,8 +126,9 @@ export default function Navigation({ visible }: NavigationProps) {
                 rel="noopener noreferrer"
                 className="ml-2 flex items-center gap-1.5 text-xs font-mono text-cyan-300 border border-cyan-500/30 px-3 py-1.5 rounded-lg hover:border-cyan-400 hover:text-white hover:bg-cyan-950/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               >
-                <Download size={12} /> CV
+                <Download size={12} /> {t.nav.cv}
               </a>
+              <LanguageSwitcher />
             </div>
 
             <button
@@ -177,8 +188,16 @@ export default function Navigation({ visible }: NavigationProps) {
                     transition={{ delay: navLinks.length * 0.1 }}
                     className="flex items-center gap-2 text-lg font-mono text-cyan-300 px-4 py-3 rounded-lg uppercase tracking-wide hover:text-cyan-400 hover:bg-cyan-900/30 transition-colors"
                   >
-                    <Download size={16} /> Resume
+                    <Download size={16} /> {t.nav.resume}
                   </motion.a>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (navLinks.length + 1) * 0.1 }}
+                    className="px-4 py-3"
+                  >
+                    <LanguageSwitcher />
+                  </motion.div>
                 </div>
               </motion.div>
             )}

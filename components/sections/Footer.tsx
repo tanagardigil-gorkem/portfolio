@@ -1,11 +1,21 @@
 "use client";
 
 import React from "react";
-import { navLinks, signals } from "../../data/portfolio";
+import { signals } from "../../data/portfolio";
 import Logo from "../ui/Logo";
+import { useTranslation } from "../../lib/i18n/context";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
+
+  const navLinks = [
+    { label: t.nav.missionLog, href: "#mission-log" },
+    { label: t.nav.arsenal, href: "#arsenal" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.captainsLog, href: "#captains-log" },
+    { label: t.nav.signals, href: "#signals" },
+  ];
 
   return (
     <footer className="relative z-10 border-t border-cyan-900/30 bg-[#060e1a]/90 backdrop-blur-md">
@@ -19,13 +29,13 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Senior Software Engineer building resilient systems with naval precision.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/60 mb-3">
-              Navigation
+              {t.footer.navigation}
             </div>
             <div className="space-y-2">
               {navLinks.map((link) => (
@@ -42,7 +52,7 @@ export default function Footer() {
 
           <div>
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/60 mb-3">
-              Connect
+              {t.footer.connect}
             </div>
             <div className="space-y-2">
               {signals.map((signal) => (
@@ -62,10 +72,10 @@ export default function Footer() {
 
         <div className="border-t border-cyan-900/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="text-xs text-slate-500 font-mono">
-            &copy; {year} Gorkem Tanagardigil. All rights reserved.
+            &copy; {year} Gorkem Tanagardigil. {t.footer.rights}
           </div>
           <div className="text-xs text-slate-600 font-mono">
-            Built with Next.js &middot; Deployed with precision
+            {t.footer.builtWith}
           </div>
         </div>
       </div>

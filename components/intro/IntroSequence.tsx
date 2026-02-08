@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SkipForward } from "lucide-react";
+import { useTranslation } from "../../lib/i18n/context";
 
 type IntroPhase = "scanning" | "locking" | "identified" | "finished";
 
@@ -193,7 +194,7 @@ const SonarRadar = ({ phase }: { phase: "scanning" | "locking" | "identified" })
 };
 
 /* ── Submarine HUD telemetry readouts ── */
-const HUDTelemetry = ({ phase }: { phase: "scanning" | "locking" | "identified" }) => {
+const HUDTelemetry = ({ phase, t }: { phase: "scanning" | "locking" | "identified"; t: ReturnType<typeof useTranslation>["t"] }) => {
   const [depth, setDepth] = useState(0);
   const [pressure, setPressure] = useState(0);
   const isLocking = phase === "locking";
@@ -220,19 +221,19 @@ const HUDTelemetry = ({ phase }: { phase: "scanning" | "locking" | "identified" 
     <div className="absolute inset-0 z-20 pointer-events-none font-mono">
       <div className={`absolute top-4 left-3 md:top-10 md:left-10 space-y-2 md:space-y-3 ${accent}`}>
         <div className={`border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Depth</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>{t.intro.depth}</div>
           <div className="text-sm md:text-xl font-bold tabular-nums">
             {depth}<span className="text-[9px] md:text-[10px] ml-1 opacity-50">m</span>
           </div>
         </div>
         <div className={`border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Pressure</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>{t.intro.pressure}</div>
           <div className="text-sm md:text-xl font-bold tabular-nums">
             {pressure}<span className="text-[9px] md:text-[10px] ml-1 opacity-50">atm</span>
           </div>
         </div>
         <div className={`hidden sm:block border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Heading</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>{t.intro.heading}</div>
           <div className="text-sm md:text-xl font-bold tabular-nums">
             247°<span className="text-[9px] md:text-[10px] ml-1 opacity-50">SW</span>
           </div>
@@ -241,21 +242,21 @@ const HUDTelemetry = ({ phase }: { phase: "scanning" | "locking" | "identified" 
 
       <div className={`absolute top-4 right-3 md:top-10 md:right-10 space-y-2 md:space-y-3 ${accent} text-right`}>
         <div className={`border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Status</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>{t.intro.status}</div>
           <div className="text-[10px] md:text-xs font-bold uppercase tracking-wider">
-            {phase === "scanning" && <span className="animate-pulse">Scanning</span>}
-            {phase === "locking" && <span className="animate-pulse">Lock-On</span>}
-            {phase === "identified" && "Confirmed"}
+            {phase === "scanning" && <span className="animate-pulse">{t.intro.scanning}</span>}
+            {phase === "locking" && <span className="animate-pulse">{t.intro.lockOn}</span>}
+            {phase === "identified" && t.intro.confirmed}
           </div>
         </div>
         <div className={`border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Coord</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>{t.intro.coord}</div>
           <div className="text-[9px] md:text-[10px] font-bold tabular-nums">
             49.611622°N<br />6.131935°E
           </div>
         </div>
         <div className={`hidden sm:block border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Hull</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>{t.intro.hull}</div>
           <div className="text-sm md:text-xl font-bold tabular-nums">
             98<span className="text-[9px] md:text-[10px] ml-0.5 opacity-50">%</span>
           </div>
@@ -264,7 +265,7 @@ const HUDTelemetry = ({ phase }: { phase: "scanning" | "locking" | "identified" 
 
       <div className={`absolute bottom-14 left-3 md:bottom-10 md:left-10 ${accent} hidden sm:block`}>
         <div className={`border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2 max-w-[220px]`}>
-          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-1`}>System Log</div>
+          <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-1`}>{t.intro.systemLog}</div>
           <div className="text-[8px] md:text-[9px] space-y-0.5 opacity-70">
             <div>&gt; SONAR_ARRAY: ACTIVE</div>
             <div>&gt; ENCRYPTION: AES-256</div>
@@ -298,7 +299,7 @@ const SonarPings = ({ phase }: { phase: string }) => {
 };
 
 /* ── Status bar at top ── */
-const StatusBar = ({ phase }: { phase: "scanning" | "locking" | "identified" }) => {
+const StatusBar = ({ phase, t }: { phase: "scanning" | "locking" | "identified"; t: ReturnType<typeof useTranslation>["t"] }) => {
   const isLocking = phase === "locking";
   const isIdentified = phase === "identified";
 
@@ -319,7 +320,7 @@ const StatusBar = ({ phase }: { phase: "scanning" | "locking" | "identified" }) 
         }`}>
           {phase === "scanning" && (
             <motion.span animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.5, repeat: Infinity }}>
-              ◈ SONAR SWEEP ACTIVE — SCANNING SECTOR 7G ◈
+              ◈ {t.intro.scanBarScanning} ◈
             </motion.span>
           )}
           {phase === "locking" && (
@@ -328,11 +329,11 @@ const StatusBar = ({ phase }: { phase: "scanning" | "locking" | "identified" }) 
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 0.5, repeat: Infinity }}
             >
-              ⚠ CONTACT DETECTED — ACQUIRING TARGET LOCK ⚠
+              ⚠ {t.intro.scanBarLocking} ⚠
             </motion.span>
           )}
           {phase === "identified" && (
-            <span className="text-green-400">✓ TARGET IDENTIFIED — CLEARANCE GRANTED</span>
+            <span className="text-green-400">✓ {t.intro.scanBarIdentified}</span>
           )}
         </div>
       </div>
@@ -390,7 +391,7 @@ const GlitchReveal = () => {
 };
 
 /* ── Central identity card ── */
-const IdentityCard = ({ phase }: { phase: "scanning" | "locking" | "identified" }) => {
+const IdentityCard = ({ phase, t }: { phase: "scanning" | "locking" | "identified"; t: ReturnType<typeof useTranslation>["t"] }) => {
   const isIdentified = phase === "identified";
 
   if (!isIdentified) return null;
@@ -412,15 +413,15 @@ const IdentityCard = ({ phase }: { phase: "scanning" | "locking" | "identified" 
 
         <div className="relative z-10">
           <div className="text-[9px] text-green-400 uppercase tracking-[0.4em] mb-4 font-mono">
-            ✓ Identity Verified
+            ✓ {t.intro.identityVerified}
           </div>
           <h1 className="text-lg sm:text-2xl md:text-3xl font-bold font-mono tracking-tight text-white mb-3">
             <GlitchReveal />
           </h1>
           <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent mb-3" />
           <div className="flex justify-center gap-6 text-[9px] font-mono uppercase tracking-[0.2em]">
-            <span className="text-cyan-400/80">Role: <span className="text-white">Senior Engineer</span></span>
-            <span className="text-cyan-400/80">Access: <span className="text-green-400">Granted</span></span>
+            <span className="text-cyan-400/80">{t.intro.role}: <span className="text-white">{t.intro.seniorEngineer}</span></span>
+            <span className="text-cyan-400/80">{t.intro.access}: <span className="text-green-400">{t.intro.granted}</span></span>
           </div>
           <div className="mt-3 sm:mt-4 flex flex-wrap justify-center gap-2 sm:gap-3">
             {["Java", "Spring", "K8s", "AWS", "Cloud"].map((tag) => (
@@ -454,6 +455,8 @@ type IntroSequenceProps = {
 };
 
 export default function IntroSequence({ introPhase, onSkip }: IntroSequenceProps) {
+  const { t } = useTranslation();
+
   return (
     <AnimatePresence>
       {introPhase !== "finished" && (
@@ -465,9 +468,9 @@ export default function IntroSequence({ introPhase, onSkip }: IntroSequenceProps
           <SonarPings phase={introPhase} />
           <ScanLine phase={introPhase} />
           <SonarRadar phase={introPhase as "scanning" | "locking" | "identified"} />
-          <HUDTelemetry phase={introPhase as "scanning" | "locking" | "identified"} />
-          <StatusBar phase={introPhase as "scanning" | "locking" | "identified"} />
-          <IdentityCard phase={introPhase as "scanning" | "locking" | "identified"} />
+          <HUDTelemetry phase={introPhase as "scanning" | "locking" | "identified"} t={t} />
+          <StatusBar phase={introPhase as "scanning" | "locking" | "identified"} t={t} />
+          <IdentityCard phase={introPhase as "scanning" | "locking" | "identified"} t={t} />
 
           <motion.div
             className="absolute inset-0 z-[5] pointer-events-none"
@@ -482,7 +485,7 @@ export default function IntroSequence({ introPhase, onSkip }: IntroSequenceProps
             onClick={onSkip}
             className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 z-[101] bg-black/60 border border-cyan-500/40 text-cyan-400 text-[9px] sm:text-[10px] font-bold px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg flex items-center gap-1.5 sm:gap-2 uppercase tracking-[0.2em] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.15)] cursor-pointer backdrop-blur-sm"
           >
-            Skip <SkipForward size={12} />
+            {t.intro.skip} <SkipForward size={12} />
           </motion.button>
         </motion.div>
       )}

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Home, Radar, ArrowLeft } from "lucide-react";
 import Logo from "../components/ui/Logo";
+import { useTranslation } from "../lib/i18n/context";
 
 const seededRandom = (seed: number) => {
   let t = seed + 0x6d2b79f5;
@@ -133,6 +134,8 @@ function GlitchText({ text }: { text: string }) {
 }
 
 export default function NotFound() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#000a14] via-[#001020] to-[#000810] text-slate-200 font-sans flex flex-col relative overflow-hidden">
       <Particles />
@@ -165,16 +168,15 @@ export default function NotFound() {
         >
           <div className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.4em] text-red-400/70 mb-4">
             <Radar size={12} className="animate-pulse" />
-            Signal Lost
+            {t.notFound.signalLost}
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-bold text-white mb-3 font-mono tracking-tight">
-            <GlitchText text="SECTOR NOT FOUND" />
+            <GlitchText text={t.notFound.title} />
           </h1>
 
           <p className="text-sm sm:text-base text-cyan-200/50 mb-8 leading-relaxed">
-            The coordinates you entered don&apos;t match any known sector.
-            This area is uncharted — or the route has been decommissioned.
+            {t.notFound.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -184,7 +186,7 @@ export default function NotFound() {
               href="/"
               className="bg-cyan-600 text-white font-bold px-6 py-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:bg-cyan-500 transition-colors flex items-center gap-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000a14]"
             >
-              <Home size={16} /> Return to Base
+              <Home size={16} /> {t.notFound.returnToBase}
             </motion.a>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -192,7 +194,7 @@ export default function NotFound() {
               onClick={() => window.history.back()}
               className="border border-cyan-500/30 text-cyan-300 px-6 py-3 rounded-full hover:border-cyan-400 hover:text-white hover:bg-cyan-950/30 transition-all flex items-center gap-2 text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000a14]"
             >
-              <ArrowLeft size={16} /> Go Back
+              <ArrowLeft size={16} /> {t.notFound.goBack}
             </motion.button>
           </div>
         </motion.div>
@@ -203,7 +205,7 @@ export default function NotFound() {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-12 border border-cyan-900/20 bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3 max-w-xs"
         >
-          <div className="text-[8px] text-cyan-500/40 uppercase tracking-[0.3em] mb-1.5 font-mono">System Log</div>
+          <div className="text-[8px] text-cyan-500/40 uppercase tracking-[0.3em] mb-1.5 font-mono">{t.notFound.systemLog}</div>
           <div className="text-[10px] text-cyan-500/50 font-mono space-y-0.5">
             <div>&gt; ROUTE_LOOKUP: FAILED</div>
             <div>&gt; STATUS: 404</div>

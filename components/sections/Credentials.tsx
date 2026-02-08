@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Award, Globe, BookOpen } from "lucide-react";
 import { certifications, languages, publications } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 const levelWidths: Record<string, string> = {
   Native: "w-full",
@@ -23,6 +24,8 @@ const cardVariants = {
 };
 
 export default function Credentials() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-28">
       <motion.div
@@ -41,7 +44,7 @@ export default function Credentials() {
               <Award size={16} />
             </div>
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
-              Certifications
+              {t.credentials.certifications}
             </div>
           </div>
           <div className="space-y-3">
@@ -68,19 +71,19 @@ export default function Credentials() {
               <Globe size={16} />
             </div>
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
-              Languages
+              {t.credentials.languages}
             </div>
           </div>
           <div className="space-y-3">
-            {languages.map((language) => (
+            {languages.map((language, idx) => (
               <div
                 key={language.name}
                 className="border border-cyan-900/30 rounded-lg p-4 bg-[#0a1529]/60"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-white font-semibold">{language.name}</div>
+                  <div className="text-white font-semibold">{t.credentials.langNames[idx] ?? language.name}</div>
                   <div className="text-[10px] text-cyan-300/80 uppercase tracking-[0.2em] font-mono">
-                    {language.level}
+                    {t.credentials.langLevels[idx] ?? language.level}
                   </div>
                 </div>
                 <div className="w-full h-1 bg-cyan-950/60 rounded-full overflow-hidden">
@@ -106,7 +109,7 @@ export default function Credentials() {
               <BookOpen size={16} />
             </div>
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
-              Publication
+              {t.credentials.publication}
             </div>
           </div>
           {publications.map((publication) => (

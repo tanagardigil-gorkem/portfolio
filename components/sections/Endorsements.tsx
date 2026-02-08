@@ -4,8 +4,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { endorsements } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 export default function Endorsements() {
+  const { t } = useTranslation();
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -37,11 +39,11 @@ export default function Endorsements() {
       >
         <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/80 mb-3">
           <span className="w-8 h-px bg-cyan-500/50" />
-          Crew Reports
+          {t.endorsements.label}
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Endorsements</h2>
-        <p className="text-cyan-200/60">What the crew says about working together.</p>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">{t.endorsements.title}</h2>
+        <p className="text-cyan-200/60">{t.endorsements.description}</p>
       </motion.div>
 
       <motion.div
@@ -72,7 +74,7 @@ export default function Endorsements() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
                 <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-8 italic">
-                  &ldquo;{current.text}&rdquo;
+                  &ldquo;{t.endorsements.items[active]?.text ?? current.text}&rdquo;
                 </p>
 
                 <div className="flex items-center gap-4">

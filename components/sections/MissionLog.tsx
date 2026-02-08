@@ -4,8 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Terminal } from "lucide-react";
 import { missionHistory } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 export default function MissionLog() {
+  const { t } = useTranslation();
+
   return (
     <section id="mission-log" className="py-32 scroll-mt-24">
       <motion.div
@@ -17,7 +20,7 @@ export default function MissionLog() {
         <div className="flex items-center gap-4 mb-16">
           <div className="h-px bg-cyan-900/50 flex-1" />
           <h2 className="text-2xl font-mono text-cyan-400 tracking-widest flex items-center gap-2">
-            <Terminal size={20} aria-hidden="true" /> MISSION LOG
+            <Terminal size={20} aria-hidden="true" /> {t.missionLog.title}
           </h2>
           <div className="h-px bg-cyan-900/50 flex-1" />
         </div>
@@ -43,13 +46,13 @@ export default function MissionLog() {
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-5">
                     <div>
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">{mission.title}</h3>
-                      <p className="text-cyan-400 font-mono text-sm">{mission.role}</p>
+                      <p className="text-cyan-400 font-mono text-sm">{t.missions[idx]?.role ?? mission.role}</p>
                     </div>
                     <span className="px-3 py-1.5 bg-cyan-950/50 border border-cyan-500/30 text-cyan-300 text-xs rounded-lg font-mono whitespace-nowrap self-start animate-glow-pulse">
-                      {mission.period}
+                      {t.missions[idx]?.period ?? mission.period}
                     </span>
                   </div>
-                  <p className="text-slate-200 mb-6 leading-relaxed">{mission.summary}</p>
+                  <p className="text-slate-200 mb-6 leading-relaxed">{t.missions[idx]?.summary ?? mission.summary}</p>
                   <div className="flex flex-wrap gap-2">
                     {mission.tech.map((tech) => (
                       <span

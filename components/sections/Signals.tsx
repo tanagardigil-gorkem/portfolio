@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { signals } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 const signalIcons = {
   Email: Mail,
@@ -22,6 +23,8 @@ const itemVariants = {
 };
 
 export default function Signals() {
+  const { t } = useTranslation();
+
   return (
     <section id="signals" className="py-28 scroll-mt-24">
       <motion.div
@@ -32,11 +35,11 @@ export default function Signals() {
       >
         <div className="flex flex-col items-center text-center mb-12">
           <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/80 mb-3">
-            Signals
+            {t.signals.label}
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2">Signals & Channels</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2">{t.signals.title}</h2>
           <p className="text-cyan-200/70 max-w-2xl">
-            Direct lines for collaboration, advisories, and mission invites.
+            {t.signals.description}
           </p>
         </div>
         <motion.div

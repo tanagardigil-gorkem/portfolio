@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Activity } from "lucide-react";
 import { activityData } from "../../data/portfolio";
+import { useTranslation } from "../../lib/i18n/context";
 
 const CELL_SIZE_SM = 10;
 const CELL_SIZE_LG = 13;
@@ -47,6 +48,7 @@ function getMonthLabels(data: { date: string; count: number }[]) {
 }
 
 export default function ActivityHeatmap() {
+  const { t } = useTranslation();
   const [hoveredCell, setHoveredCell] = useState<{ date: string; count: number; x: number; y: number } | null>(null);
 
   const totalContributions = useMemo(
@@ -93,11 +95,11 @@ export default function ActivityHeatmap() {
       >
         <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/80 mb-3">
           <span className="w-8 h-px bg-cyan-500/50" />
-          Operations Tempo
+          {t.heatmap.label}
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Activity Sonar</h2>
-        <p className="text-cyan-200/60 text-sm sm:text-base px-2 sm:px-0">A year of engineering activity — commits, reviews, and deployments.</p>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">{t.heatmap.title}</h2>
+        <p className="text-cyan-200/60 text-sm sm:text-base px-2 sm:px-0">{t.heatmap.description}</p>
       </motion.div>
 
       <motion.div
@@ -117,21 +119,21 @@ export default function ActivityHeatmap() {
               </div>
               <div>
                 <div className="text-white font-semibold text-sm">
-                  {totalContributions.toLocaleString()} contributions
+                  {totalContributions.toLocaleString()} {t.heatmap.contributions}
                 </div>
-                <div className="text-[10px] font-mono text-cyan-500/60">in the last year</div>
+                <div className="text-[10px] font-mono text-cyan-500/60">{t.heatmap.inLastYear}</div>
               </div>
             </div>
 
             <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-mono text-cyan-500/50">
-              <span>Less</span>
+              <span>{t.heatmap.less}</span>
               {[0, 1, 3, 5, 7].map((level) => (
                 <div
                   key={level}
                   className={`w-3 h-3 rounded-sm border ${getIntensityClass(level)}`}
                 />
               ))}
-              <span>More</span>
+              <span>{t.heatmap.more}</span>
             </div>
           </div>
 
@@ -240,7 +242,7 @@ export default function ActivityHeatmap() {
               }}
             >
               <div className="text-white font-semibold">
-                {hoveredCell.count} contribution{hoveredCell.count !== 1 ? "s" : ""}
+                {hoveredCell.count} {t.heatmap.contributions}
               </div>
               <div className="text-cyan-500/60">
                 {new Date(hoveredCell.date).toLocaleDateString("en-US", {

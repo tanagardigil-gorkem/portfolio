@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar, Tag, Share2 } from "lucide-react";
 import { captainsLog } from "../../../data/portfolio";
 import Logo from "../../../components/ui/Logo";
+import { useTranslation } from "../../../lib/i18n/context";
 
 function renderMarkdown(content: string) {
   const lines = content.split("\n");
@@ -245,6 +246,7 @@ function renderMarkdown(content: string) {
 }
 
 export default function BlogPostPage() {
+  const { t } = useTranslation();
   const params = useParams();
   const slug = params.slug as string;
 
@@ -260,12 +262,12 @@ export default function BlogPostPage() {
       <div className="min-h-screen bg-gradient-to-b from-[#000a14] via-[#001020] to-[#000810] text-slate-200 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl font-bold font-mono text-cyan-400/50 mb-4">404</div>
-          <p className="text-cyan-200/60 mb-6">Log entry not found.</p>
+          <p className="text-cyan-200/60 mb-6">{t.blog.notFound}</p>
           <a
             href="/"
             className="bg-cyan-600 text-white font-bold px-6 py-3 rounded-full hover:bg-cyan-500 transition-colors"
           >
-            Return to Base
+            {t.blog.returnToBase}
           </a>
         </div>
       </div>
@@ -305,7 +307,7 @@ export default function BlogPostPage() {
             className="flex items-center gap-1.5 text-xs font-mono text-cyan-300/70 hover:text-cyan-300 transition-colors"
           >
             <ArrowLeft size={14} />
-            All Logs
+            {t.blog.allLogs}
           </Link>
         </div>
       </header>
@@ -365,7 +367,7 @@ export default function BlogPostPage() {
                 className="flex items-center gap-2 text-sm font-mono text-cyan-400/70 hover:text-cyan-400 transition-colors"
               >
                 <ArrowLeft size={14} />
-                Back to Captain&apos;s Log
+                {t.blog.backToLog}
               </Link>
               <button
                 type="button"
@@ -382,7 +384,7 @@ export default function BlogPostPage() {
                 className="flex items-center gap-2 text-sm font-mono text-cyan-400/70 hover:text-cyan-400 transition-colors cursor-pointer"
               >
                 <Share2 size={14} />
-                Share this log
+                {t.blog.shareLog}
               </button>
             </div>
           </div>

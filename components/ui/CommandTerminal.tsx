@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, X, Minus, Maximize2 } from "lucide-react";
+import { useTranslation } from "../../lib/i18n/context";
 
 type Line = {
   type: "input" | "output" | "error" | "system" | "ascii";
@@ -168,6 +169,7 @@ const COMMANDS: Record<string, () => Line[]> = {
 };
 
 export default function CommandTerminal() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [lines, setLines] = useState<Line[]>(WELCOME_LINES);
@@ -262,8 +264,8 @@ export default function CommandTerminal() {
         className="fixed bottom-4 left-4 sm:bottom-8 sm:left-8 z-40 bg-[#0a1529]/90 border border-cyan-500/30 text-cyan-400 p-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:border-cyan-400 hover:bg-cyan-950/60 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36] backdrop-blur-md"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        aria-label="Open command terminal"
-        title="Open Terminal (Easter Egg!)"
+        aria-label={t.terminal.open}
+        title={t.terminal.open}
       >
         <Terminal size={20} aria-hidden="true" />
       </motion.button>
@@ -357,7 +359,7 @@ export default function CommandTerminal() {
             aria-label="Restore terminal"
           >
             <Maximize2 size={12} aria-hidden="true" />
-            terminal
+            {t.terminal.restore}
           </motion.button>
         )}
       </AnimatePresence>
