@@ -2,6 +2,7 @@ export const navLinks = [
   { label: "Mission Log", href: "#mission-log" },
   { label: "Arsenal", href: "#arsenal" },
   { label: "Projects", href: "#projects" },
+  { label: "Captain's Log", href: "#captains-log" },
   { label: "Signals", href: "#signals" },
 ];
 
@@ -187,6 +188,108 @@ export const publications = [
     location: "METU",
   },
 ];
+
+export const captainsLog = [
+  {
+    slug: "from-navy-to-code",
+    title: "From Navy Bridges to Code Bridges",
+    excerpt:
+      "How a decade of naval engineering taught me that the best systems are the ones that survive the storm — not the ones that avoid it.",
+    date: "2025-01-15",
+    readTime: "6 min",
+    tags: ["Career", "Navy", "Resilience"],
+    content: `After 11 years in the Turkish Navy, I traded radar screens for terminal screens. But the lessons stayed the same.\n\nIn the Navy, you learn one thing fast: **systems fail**. The question is never *if* — it's *when* and *how gracefully*. A ship's combat management system doesn't get the luxury of "we'll fix it in the next sprint." When you're 200 nautical miles from shore, your code either works or people are in danger.\n\nThat mindset shaped everything about how I write software today.\n\n## The Watchkeeper's Mentality\n\nOn a warship, there's always someone on watch. 24/7, 365 days. You monitor systems, you anticipate failures, you have runbooks for every scenario. Sound familiar? That's essentially what modern SRE and on-call culture aspires to be.\n\nThe difference is that in the Navy, I learned this at 22 with real consequences. By the time I moved into civilian software engineering, observability and incident response felt like second nature.\n\n## Building for the Worst Case\n\nEvery system I build now starts with the same question: *"What happens when this fails?"*\n\n- Circuit breakers aren't optional — they're the first thing I implement\n- Retry logic with exponential backoff is table stakes\n- Every microservice needs a health check that actually checks health\n- Graceful degradation > hard failure, always\n\n## The Transition\n\nLeaving the Navy wasn't easy. But I realized that the skills transfer perfectly:\n\n| Navy | Software Engineering |\n|------|---------------------|\n| Mission planning | Sprint planning |\n| Damage control | Incident response |\n| Chain of command | Escalation paths |\n| Navigation charts | Architecture diagrams |\n| Drill exercises | Chaos engineering |\n\nThe uniform changed. The discipline didn't.`,
+  },
+  {
+    slug: "kubernetes-at-scale",
+    title: "Kubernetes War Stories: Lessons from Production",
+    excerpt:
+      "Real incidents, real fixes. What running 50+ microservices on EKS taught me about container orchestration.",
+    date: "2024-11-20",
+    readTime: "8 min",
+    tags: ["Kubernetes", "DevOps", "AWS"],
+    content: `Running Kubernetes in production is like commanding a fleet — everything looks orderly until the first real storm hits.\n\nOver the past two years managing our payroll engine on AWS EKS, I've accumulated a collection of war stories that I wish someone had told me earlier.\n\n## The OOMKilled Cascade\n\nIt started on a Monday morning. One pod got OOMKilled. Then another. Then the entire namespace started thrashing.\n\nThe root cause? A memory leak in our PDF generation service that only manifested with documents over 200 pages. Our resource limits were set correctly, but we hadn't accounted for the burst pattern.\n\n**Lesson:** Set resource *requests* conservatively but *limits* generously. Monitor the delta between the two. When they start converging, you have a problem brewing.\n\n## The DNS Resolution Bottleneck\n\nOur services were experiencing random 5-second timeouts. Not consistently — just enough to make debugging maddening.\n\nTurns out, CoreDNS was the bottleneck. With 50+ services all resolving each other's names, the default CoreDNS deployment was overwhelmed.\n\n**Fix:** \n- Scaled CoreDNS horizontally\n- Enabled NodeLocal DNSCache\n- Added \`ndots: 2\` to our pod DNS config to reduce unnecessary search domain lookups\n\nLatency dropped by 40% overnight.\n\n## Rolling Updates Gone Wrong\n\nWe had a deployment that passed all CI checks but caused a cascading failure in production. The new version changed a serialization format that was backward-incompatible.\n\n**What we implemented after:**\n- Canary deployments with automatic rollback via ArgoCD\n- Contract testing between services\n- A "shadow traffic" stage before full rollout\n\nKubernetes gives you the tools. But the strategy is on you.`,
+  },
+  {
+    slug: "spring-boot-performance",
+    title: "Spring Boot Performance: Beyond the Defaults",
+    excerpt:
+      "Default configurations are starting points, not destinations. How we cut our API response times by 60%.",
+    date: "2024-09-05",
+    readTime: "7 min",
+    tags: ["Java", "Spring Boot", "Performance"],
+    content: `Spring Boot's "convention over configuration" philosophy is brilliant for getting started. But in production, those conventions can cost you.\n\nHere's how we systematically improved our payroll API from ~800ms p95 to ~320ms p95.\n\n## 1. Connection Pool Tuning\n\nThe default HikariCP settings are conservative. For our workload:\n\n\`\`\`yaml\nspring:\n  datasource:\n    hikari:\n      maximum-pool-size: 20\n      minimum-idle: 5\n      connection-timeout: 3000\n      idle-timeout: 600000\n\`\`\`\n\nWe also added connection pool metrics to Datadog. Watching pool utilization over time revealed that our original pool size of 10 was causing thread contention during payroll calculation windows.\n\n## 2. JPA N+1 Query Elimination\n\nThe silent killer. We used Spring Data JPA's \`@EntityGraph\` annotations and switched critical queries to projections:\n\n\`\`\`java\n@EntityGraph(attributePaths = {"employee", "deductions"})\nList<PayrollRecord> findByPeriod(String period);\n\`\`\`\n\nThis alone cut our main calculation endpoint from 1.2s to 400ms.\n\n## 3. Redis Caching Strategy\n\nNot everything needs to hit the database. We implemented a tiered caching strategy:\n\n- **L1:** In-process Caffeine cache (5 min TTL) for reference data\n- **L2:** Redis cluster for computed results (configurable TTL)\n- **Invalidation:** Event-driven via RabbitMQ when source data changes\n\n## 4. Virtual Threads (Java 21)\n\nMigrating to virtual threads was the final piece. Our I/O-heavy workload benefited massively:\n\n- Thread pool management simplified\n- Throughput increased ~3x under load\n- Memory footprint decreased significantly\n\nThe key takeaway: **measure first, optimize second**. Every change above was driven by profiling data, not intuition.`,
+  },
+  {
+    slug: "agentic-ai-engineering",
+    title: "Agentic AI: Building Systems That Think in Steps",
+    excerpt:
+      "Moving beyond chatbots — how I'm exploring autonomous AI agents that plan, execute, and self-correct.",
+    date: "2025-02-01",
+    readTime: "5 min",
+    tags: ["AI", "LLM", "Architecture"],
+    content: `The AI landscape is shifting from "ask a question, get an answer" to "give a goal, watch it execute." This is the agentic paradigm, and it's where I'm focusing my exploration.\n\n## What Makes an Agent?\n\nAn AI agent isn't just a chatbot with tools. It's a system that can:\n\n1. **Plan** — Break a complex goal into steps\n2. **Execute** — Use tools and APIs to carry out each step\n3. **Observe** — Evaluate the results\n4. **Adapt** — Adjust the plan based on what happened\n\nThis loop — Plan → Execute → Observe → Adapt — is remarkably similar to the OODA loop (Observe, Orient, Decide, Act) that military strategists use. My naval background makes this feel natural.\n\n## RAG: The Agent's Memory\n\nRetrieval-Augmented Generation is the backbone of any useful agent. Without it, you're limited to what the model was trained on.\n\nI've been experimenting with:\n- **Vector databases** for semantic search over documentation\n- **Hybrid search** combining keyword and semantic approaches\n- **Chunking strategies** that preserve context boundaries\n\nThe key insight: RAG quality depends more on your chunking and embedding strategy than on the LLM itself.\n\n## Where This Is Going\n\nI see agentic AI transforming backend engineering:\n\n- **Automated incident response** — Agents that can diagnose and fix common production issues\n- **Code review agents** — Beyond linting, actually understanding architectural implications\n- **Test generation** — Agents that understand your domain and generate meaningful test cases\n\nThe engineers who understand both the AI capabilities and the systems they're being applied to will be the ones who build the most impactful solutions.\n\nThat's the intersection I'm positioning myself at.`,
+  },
+];
+
+export const endorsements = [
+  {
+    name: "Placeholder Colleague",
+    role: "Engineering Manager",
+    company: "Payroll Engine",
+    text: "Gorkem brings a level of operational discipline that's rare in software engineering. When our production systems face pressure, he's the person everyone looks to. His naval background isn't just a talking point — you can see it in how he architects for failure and keeps calm during incidents.",
+    avatar: "EM",
+  },
+  {
+    name: "Placeholder Teammate",
+    role: "Senior Developer",
+    company: "Rightyon",
+    text: "Working with Gorkem was a masterclass in building maintainable systems. He doesn't just write code that works — he writes code that other people can understand, extend, and debug at 3 AM. His Spring Boot expertise is deep and practical.",
+    avatar: "SD",
+  },
+  {
+    name: "Placeholder Lead",
+    role: "Tech Lead",
+    company: "Oscorpex",
+    text: "Gorkem's ability to context-switch between backend APIs, IoT integrations, and mobile development was impressive. He mentored our junior developers with patience and always pushed for better testing practices. A true force multiplier on any team.",
+    avatar: "TL",
+  },
+  {
+    name: "Placeholder Officer",
+    role: "Commanding Officer",
+    company: "Turkish Navy",
+    text: "Lieutenant Tanagardigil demonstrated exceptional technical leadership in maintaining our mission-critical systems. His work on encryption and authorization protocols was exemplary. He brought engineering rigor to every assignment.",
+    avatar: "CO",
+  },
+];
+
+export const activityData = (() => {
+  const data: { date: string; count: number }[] = [];
+  const now = new Date();
+  const seededRandom = (seed: number) => {
+    let t = seed + 0x6d2b79f5;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let i = 364; i >= 0; i--) {
+    const d = new Date(now);
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toISOString().split("T")[0];
+    const dayOfWeek = d.getDay();
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    const seed = i * 137 + 42;
+    const rand = seededRandom(seed);
+    let count = 0;
+    if (isWeekend) {
+      count = rand > 0.6 ? Math.floor(rand * 4) : 0;
+    } else {
+      count = rand > 0.15 ? Math.floor(rand * 8) + 1 : 0;
+    }
+    data.push({ date: dateStr, count });
+  }
+  return data;
+})();
 
 export const arsenalStacks = [
   {

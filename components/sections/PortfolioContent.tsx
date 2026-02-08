@@ -7,6 +7,9 @@ import Origin from "./Origin";
 import Projects from "./Projects";
 import MissionLog from "./MissionLog";
 import Arsenal from "./Arsenal";
+import CaptainsLog from "./CaptainsLog";
+import ActivityHeatmap from "./ActivityHeatmap";
+import Endorsements from "./Endorsements";
 import Credentials from "./Credentials";
 import Signals from "./Signals";
 import FinalCta from "./FinalCta";
@@ -26,6 +29,9 @@ export default function PortfolioContent({ introPhase }: PortfolioContentProps) 
         <Projects />
         <MissionLog />
         <Arsenal />
+        <ActivityHeatmap />
+        <CaptainsLog />
+        <Endorsements />
         <Credentials />
         <Signals />
         <FinalCta />

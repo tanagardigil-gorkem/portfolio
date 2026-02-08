@@ -7,6 +7,7 @@ import IntroSequence from "./intro/IntroSequence";
 import SceneOverlays from "./overlays/SceneOverlays";
 import Navigation from "./ui/Navigation";
 import SkipToContent from "./ui/SkipToContent";
+import CommandTerminal from "./ui/CommandTerminal";
 
 type IntroPhase = "scanning" | "locking" | "identified" | "finished";
 
@@ -23,8 +24,14 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
   const skippedRef = useRef(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem("intro-done")) {
+      skippedRef.current = true;
+      setIntroPhase("finished");
+      return;
+    }
+
     if (prefersReducedMotion) return;
-    if (skippedRef.current) return;
+
     const timerLock = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("locking");
     }, 2500);
@@ -32,7 +39,10 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
       if (!skippedRef.current) setIntroPhase("identified");
     }, 5000);
     const timerFinish = setTimeout(() => {
-      if (!skippedRef.current) setIntroPhase("finished");
+      if (!skippedRef.current) {
+        setIntroPhase("finished");
+        sessionStorage.setItem("intro-done", "1");
+      }
     }, 7500);
 
     return () => {
@@ -52,6 +62,7 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
   const handleSkip = () => {
     skippedRef.current = true;
     setIntroPhase("finished");
+    sessionStorage.setItem("intro-done", "1");
   };
 
   const effectiveIntroPhase: IntroPhase = prefersReducedMotion
@@ -106,6 +117,8 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
           </motion.a>
         )}
       </AnimatePresence>
+
+      {effectiveIntroPhase === "finished" && <CommandTerminal />}
     </>
   );
 }
