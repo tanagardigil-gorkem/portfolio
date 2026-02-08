@@ -251,7 +251,7 @@ const HUDTelemetry = ({ phase }: { phase: "scanning" | "locking" | "identified" 
         <div className={`border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
           <div className={`text-[7px] md:text-[8px] ${accentDim} uppercase tracking-[0.3em] mb-0.5`}>Coord</div>
           <div className="text-[9px] md:text-[10px] font-bold tabular-nums">
-            41.0082°N<br />28.9784°E
+            49.611622°N<br />6.131935°E
           </div>
         </div>
         <div className={`hidden sm:block border ${borderAccent} bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 md:px-3 md:py-2`}>
