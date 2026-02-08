@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gorkem Tanagardigil | Subsurface Portfolio",
+  title: "Gorkem Tanagardigil | Portfolio",
   description: "Senior Software Engineer and former Navy officer specializing in resilient backend systems, cloud, and mission-critical operations.",
   openGraph: {
-    title: "Gorkem Tanagardigil | Subsurface Portfolio",
+    title: "Gorkem Tanagardigil | Portfolio",
     description: "Mission-critical software engineer with naval roots. Backend, cloud, and stability focused.",
     url: "https://www.gorkemtanagardigil.com",
     siteName: "Gorkem Tanagardigil",
