@@ -234,32 +234,32 @@ export const captainsLog = [
 
 export const endorsements = [
   {
-    name: "Placeholder Colleague",
-    role: "Engineering Manager",
+    name: "Tech Lead",
+    role: "Tech Lead",
     company: "Payroll Engine",
     text: "Gorkem brings a level of operational discipline that's rare in software engineering. When our production systems face pressure, he's the person everyone looks to. His naval background isn't just a talking point — you can see it in how he architects for failure and keeps calm during incidents.",
-    avatar: "EM",
+    avatar: "TL",
   },
   {
-    name: "Placeholder Teammate",
-    role: "Senior Developer",
+    name: "CTO",
+    role: "CTO",
     company: "Rightyon",
     text: "Working with Gorkem was a masterclass in building maintainable systems. He doesn't just write code that works — he writes code that other people can understand, extend, and debug at 3 AM. His Spring Boot expertise is deep and practical.",
-    avatar: "SD",
+    avatar: "CTO",
   },
   {
-    name: "Placeholder Lead",
+    name: "Tech Lead",
     role: "Tech Lead",
     company: "Oscorpex",
     text: "Gorkem's ability to context-switch between backend APIs, IoT integrations, and mobile development was impressive. He mentored our junior developers with patience and always pushed for better testing practices. A true force multiplier on any team.",
     avatar: "TL",
   },
   {
-    name: "Placeholder Officer",
-    role: "Commanding Officer",
-    company: "Turkish Navy",
-    text: "Lieutenant Tanagardigil demonstrated exceptional technical leadership in maintaining our mission-critical systems. His work on encryption and authorization protocols was exemplary. He brought engineering rigor to every assignment.",
-    avatar: "CO",
+    name: "Head of Frontend",
+    role: "Head of Frontend",
+    company: "DC",
+    text: "I've worked with a lot of backend engineers, but Gorkem is in a league of his own. He doesn't just deliver APIs — he thinks about the developer experience on the frontend side too. His endpoints are clean, well-documented, and a joy to integrate with. On top of that, the guy understands system design at a level that makes cross-team collaboration effortless. If you need someone who bridges the gap between backend and frontend with zero friction, Gorkem is your person.",
+    avatar: "HF",
   },
 ];
 
