@@ -18,9 +18,9 @@ export default function Navigation({ visible }: NavigationProps) {
   const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
+    { label: t.nav.projects, href: "#projects" },
     { label: t.nav.missionLog, href: "#mission-log" },
     { label: t.nav.arsenal, href: "#arsenal" },
-    { label: t.nav.projects, href: "#projects" },
     { label: t.nav.captainsLog, href: "#captains-log" },
     { label: t.nav.signals, href: "#signals" },
   ];
@@ -35,6 +35,7 @@ export default function Navigation({ visible }: NavigationProps) {
 
   useEffect(() => {
     const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+    const visibleSections = new Set<string>();
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -43,7 +44,16 @@ export default function Navigation({ visible }: NavigationProps) {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setActiveSection(id);
+            visibleSections.add(id);
+          } else {
+            visibleSections.delete(id);
+          }
+          if (visibleSections.size === 0) {
+            setActiveSection("");
+          } else {
+            // pick the first visible section in DOM order
+            const first = sectionIds.find((s) => visibleSections.has(s));
+            setActiveSection(first ?? "");
           }
         },
         { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
