@@ -13,7 +13,7 @@ export default function Origin() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7 }}
       >
-        <div className="relative border border-cyan-900/30 bg-[#020617]/80 backdrop-blur-md p-10 overflow-hidden rounded-2xl shadow-2xl group">
+        <div className="relative border border-cyan-900/30 bg-[#020617]/80 backdrop-blur-md p-5 sm:p-10 overflow-hidden rounded-2xl shadow-2xl group">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent -skew-x-12 translate-x-[-100%] animate-shimmer pointer-events-none" />
           <div className="relative z-10 flex flex-col md:flex-row gap-8">
             <div className="bg-cyan-950/30 p-6 rounded-xl border border-cyan-900/50 flex flex-col items-center justify-center min-w-[140px] gap-3">

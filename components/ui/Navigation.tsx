@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Compass, Menu, X, Download } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
+import Logo from "./Logo";
 import { navLinks } from "../../data/portfolio";
 
 type NavigationProps = {
@@ -79,12 +80,9 @@ export default function Navigation({ visible }: NavigationProps) {
           >
             <a
               href="#top"
-              className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1529] rounded"
+              className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1529] rounded"
             >
-              <Compass size={20} aria-hidden="true" />
-              <span className="font-mono text-sm font-bold tracking-wider hidden sm:inline">
-                GT
-              </span>
+              <Logo size={30} showText />
             </a>
 
             <div className="hidden md:flex items-center gap-1">

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { Compass } from "lucide-react";
 import { navLinks, signals } from "../../data/portfolio";
+import Logo from "../ui/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,8 +12,8 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <a href="#top" className="flex items-center gap-2 text-cyan-400 mb-3">
-              <Compass size={18} aria-hidden="true" />
+            <a href="#top" className="flex items-center gap-3 text-cyan-400 mb-3">
+              <Logo size={28} />
               <span className="font-mono text-sm font-bold tracking-wider">
                 GORKEM TANAGARDIGIL
               </span>

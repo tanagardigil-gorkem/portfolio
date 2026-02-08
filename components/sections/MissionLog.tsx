@@ -33,16 +33,16 @@ export default function MissionLog() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="relative pl-12 md:pl-20 group"
+                className="relative pl-10 md:pl-20 group"
               >
-                <div className="absolute left-2.5 md:left-6.5 top-8 w-3 h-3 rounded-full bg-cyan-500 border-2 border-cyan-300 animate-timeline-pulse z-10" />
+                <div className="absolute left-[7px] md:left-[25px] top-8 w-3 h-3 rounded-full bg-cyan-500 border-2 border-cyan-300 animate-timeline-pulse z-10" />
 
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-500" />
 
-                <div className="relative bg-[#0a1529]/80 backdrop-blur-md border border-cyan-900/50 p-8 rounded-xl shadow-2xl hover:border-cyan-700/60 transition-colors">
+                <div className="relative bg-[#0a1529]/80 backdrop-blur-md border border-cyan-900/50 p-5 sm:p-8 rounded-xl shadow-2xl hover:border-cyan-700/60 transition-colors">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-5">
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">{mission.title}</h3>
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">{mission.title}</h3>
                       <p className="text-cyan-400 font-mono text-sm">{mission.role}</p>
                     </div>
                     <span className="px-3 py-1.5 bg-cyan-950/50 border border-cyan-500/30 text-cyan-300 text-xs rounded-lg font-mono whitespace-nowrap self-start animate-glow-pulse">

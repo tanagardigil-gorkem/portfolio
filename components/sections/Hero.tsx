@@ -67,20 +67,20 @@ export default function Hero({ introPhase }: HeroProps) {
           </span>
           MISSION CONTROL: ONLINE
         </div>
-        <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
           GORKEM<br />
           <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
             TANAGARDIGIL
           </span>
         </h1>
-        <div className="text-lg md:text-2xl mb-6 h-8">
+        <div className="text-base sm:text-lg md:text-2xl mb-6 h-7 sm:h-8">
           {prefersReducedMotion ? (
             <span className="text-cyan-400 font-mono">{roles[0]}</span>
           ) : (
             <TypingEffect />
           )}
         </div>
-        <p className="text-lg md:text-xl text-cyan-100 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-cyan-100 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
           Blending <span className="text-cyan-400 font-semibold">naval discipline</span> with
           modern cloud engineering. I build resilient systems that stay online when the seas get
           rough.

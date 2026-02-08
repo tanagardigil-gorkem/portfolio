@@ -149,7 +149,7 @@ export const signals = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/gorkemtanagardigil",
+    value: "linkedin.com/in/gorkem-tanagardigil",
     href: "https://www.linkedin.com/in/gorkem-tanagardigil",
   },
   {

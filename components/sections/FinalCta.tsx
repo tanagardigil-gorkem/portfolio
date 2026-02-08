@@ -15,14 +15,14 @@ export default function FinalCta() {
         className="relative"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 rounded-3xl blur-xl" />
-        <div className="relative border border-cyan-900/30 bg-[#0a1529]/60 backdrop-blur-md rounded-3xl p-12 md:p-16 overflow-hidden">
+        <div className="relative border border-cyan-900/30 bg-[#0a1529]/60 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent -skew-x-12 translate-x-[-100%] animate-shimmer pointer-events-none" />
 
           <div className="relative z-10">
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-400/70 mb-4">
               Ready for the next mission?
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
               Let&apos;s Build Something{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 Resilient

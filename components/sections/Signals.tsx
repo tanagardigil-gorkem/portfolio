@@ -34,7 +34,7 @@ export default function Signals() {
           <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/80 mb-3">
             Signals
           </div>
-          <h2 className="text-4xl font-bold text-white mb-2">Signals & Channels</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2">Signals & Channels</h2>
           <p className="text-cyan-200/70 max-w-2xl">
             Direct lines for collaboration, advisories, and mission invites.
           </p>
@@ -56,7 +56,7 @@ export default function Signals() {
                 href={signal.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-[#0a1529]/70 border border-cyan-900/40 rounded-2xl p-8 hover:border-cyan-500/60 hover:bg-cyan-900/20 transition-all shadow-lg backdrop-blur-sm flex flex-col items-center gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1529] overflow-hidden"
+                className="group relative bg-[#0a1529]/70 border border-cyan-900/40 rounded-2xl p-5 sm:p-8 hover:border-cyan-500/60 hover:bg-cyan-900/20 transition-all shadow-lg backdrop-blur-sm flex flex-col items-center gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1529] overflow-hidden"
                 aria-label={`${signal.label}: ${signal.value}`}
               >
                 <div className="relative">

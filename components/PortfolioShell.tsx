@@ -27,13 +27,13 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
     if (skippedRef.current) return;
     const timerLock = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("locking");
-    }, 2000);
+    }, 2500);
     const timerIdentify = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("identified");
-    }, 4000);
+    }, 5000);
     const timerFinish = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("finished");
-    }, 5500);
+    }, 7500);
 
     return () => {
       clearTimeout(timerLock);
@@ -96,7 +96,7 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-8 right-8 z-40 bg-cyan-600 text-white px-4 py-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-300/60 flex items-center gap-2 hover:bg-cyan-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
+            className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-40 bg-cyan-600 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)] border border-cyan-300/60 flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base hover:bg-cyan-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.96 }}
             aria-label="Scroll to top"
