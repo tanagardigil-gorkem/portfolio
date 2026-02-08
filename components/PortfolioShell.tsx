@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import IntroSequence from "./intro/IntroSequence";
@@ -15,21 +15,29 @@ type PortfolioShellProps = {
   children: (introPhase: IntroPhase) => React.ReactNode;
 };
 
+const emptySubscribe = () => () => {};
+
+function useIntroDone() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => sessionStorage.getItem("intro-done") === "1",
+    () => false,
+  );
+}
+
 export default function PortfolioShell({ children }: PortfolioShellProps) {
   const { scrollY } = useScroll();
   const prefersReducedMotion = useReducedMotion();
+  const introDone = useIntroDone();
   const [depth, setDepth] = useState(0);
   const [showSurfaceButton, setShowSurfaceButton] = useState(false);
-  const [introPhase, setIntroPhase] = useState<IntroPhase>("scanning");
-  const skippedRef = useRef(false);
+  const [introPhase, setIntroPhase] = useState<IntroPhase>(
+    introDone ? "finished" : "scanning"
+  );
+  const skippedRef = useRef(introDone);
 
   useEffect(() => {
-    if (sessionStorage.getItem("intro-done")) {
-      skippedRef.current = true;
-      setIntroPhase("finished");
-      return;
-    }
-
+    if (skippedRef.current) return;
     if (prefersReducedMotion) return;
 
     const timerLock = setTimeout(() => {
@@ -85,9 +93,9 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
 
         <motion.div
           className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-4 text-cyan-500/80 font-mono mix-blend-screen"
-          initial={{ x: -100 }}
+          initial={introDone ? { x: 0 } : { x: -100 }}
           animate={effectiveIntroPhase === "finished" ? { x: 0 } : { x: -100 }}
-          transition={{ duration: 0.8, delay: effectiveIntroPhase === "finished" ? 0.2 : 0 }}
+          transition={{ duration: 0.8, delay: effectiveIntroPhase === "finished" && !introDone ? 0.2 : 0 }}
         >
           <div className="w-px h-32 bg-gradient-to-b from-transparent via-cyan-500 to-transparent" />
           <div className="text-4xl font-bold tracking-tighter tabular-nums">
