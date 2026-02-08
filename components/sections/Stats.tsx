@@ -27,7 +27,7 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   }, [isInView, target]);
 
   return (
-    <div ref={ref} className="text-5xl font-bold text-white mb-2 tabular-nums">
+    <div ref={ref} className="text-3xl sm:text-5xl font-bold text-white mb-2 tabular-nums">
       {count}
       <span className="text-cyan-400">{suffix}</span>
     </div>
@@ -65,7 +65,7 @@ export default function Stats() {
             {stat.target > 0 ? (
               <CountUp target={stat.target} suffix={stat.suffix} />
             ) : (
-              <div className="text-5xl font-bold text-white mb-2">
+              <div className="text-3xl sm:text-5xl font-bold text-white mb-2">
                 {stat.value}
               </div>
             )}

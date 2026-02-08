@@ -73,7 +73,7 @@ export default function Signals() {
                   <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300/70 group-hover:text-cyan-300 transition-colors mb-1">
                     {signal.label}
                   </div>
-                  <div className="text-[10px] text-cyan-500/50 font-mono truncate max-w-[180px]">
+                  <div className="text-[10px] text-cyan-500/50 font-mono truncate max-w-[220px] sm:max-w-[180px]">
                     {signal.value}
                   </div>
                 </div>

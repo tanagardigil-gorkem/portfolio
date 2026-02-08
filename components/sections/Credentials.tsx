@@ -102,7 +102,7 @@ export default function Credentials() {
 
         <motion.div
           variants={cardVariants}
-          className="bg-[#0a1529]/70 border border-cyan-900/40 rounded-xl p-6 shadow-lg backdrop-blur-sm hover:border-cyan-800/60 transition-colors"
+          className="sm:col-span-2 lg:col-span-1 bg-[#0a1529]/70 border border-cyan-900/40 rounded-xl p-6 shadow-lg backdrop-blur-sm hover:border-cyan-800/60 transition-colors"
         >
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 rounded-lg bg-cyan-950/60 flex items-center justify-center text-cyan-400">
