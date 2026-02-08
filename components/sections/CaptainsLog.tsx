@@ -55,8 +55,7 @@ export default function CaptainsLog() {
             key={post.slug}
             href={`/log/${post.slug}`}
             variants={cardVariants}
-            whileHover={{ y: -6, borderColor: "rgba(6, 182, 212, 0.5)" }}
-            className={`group relative bg-[#0a1529]/60 border border-cyan-900/30 rounded-xl overflow-hidden hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] transition-shadow shadow-lg backdrop-blur-sm block ${
+            className={`group relative bg-[#0a1529]/60 border border-cyan-900/30 rounded-xl overflow-hidden shadow-lg backdrop-blur-sm block transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] ${
               idx === 0 ? "md:col-span-2" : ""
             }`}
           >
