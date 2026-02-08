@@ -10,6 +10,7 @@ import Arsenal from "./Arsenal";
 import Credentials from "./Credentials";
 import Signals from "./Signals";
 import FinalCta from "./FinalCta";
+import Footer from "./Footer";
 
 type PortfolioContentProps = {
   introPhase: "scanning" | "locking" | "identified" | "finished";
@@ -17,16 +18,19 @@ type PortfolioContentProps = {
 
 export default function PortfolioContent({ introPhase }: PortfolioContentProps) {
   return (
-    <main id="main-content" className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
-      <Hero introPhase={introPhase} />
-      <Stats />
-      <Origin />
-      <Projects />
-      <MissionLog />
-      <Arsenal />
-      <Credentials />
-      <Signals />
-      <FinalCta />
-    </main>
+    <>
+      <main id="main-content" className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+        <Hero introPhase={introPhase} />
+        <Stats />
+        <Origin />
+        <Projects />
+        <MissionLog />
+        <Arsenal />
+        <Credentials />
+        <Signals />
+        <FinalCta />
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -1,12 +1,53 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 
 type HeroProps = {
   introPhase: "scanning" | "locking" | "identified" | "finished";
 };
+
+const roles = [
+  "Senior Software Engineer",
+  "Cloud Architect",
+  "Backend Specialist",
+  "Former Navy Officer",
+];
+
+function TypingEffect() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    const speed = isDeleting ? 40 : 80;
+
+    if (!isDeleting && charIndex === current.length) {
+      const pause = setTimeout(() => setIsDeleting(true), 2000);
+      return () => clearTimeout(pause);
+    }
+
+    if (isDeleting && charIndex === 0) {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCharIndex((prev) => prev + (isDeleting ? -1 : 1));
+    }, speed);
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, roleIndex]);
+
+  return (
+    <span className="text-cyan-400 font-mono">
+      {roles[roleIndex].slice(0, charIndex)}
+      <span className="inline-block w-[2px] h-[1em] bg-cyan-400 ml-0.5 align-middle" style={{ animation: "typing-cursor 0.8s step-end infinite" }} />
+    </span>
+  );
+}
 
 export default function Hero({ introPhase }: HeroProps) {
   const prefersReducedMotion = useReducedMotion();
@@ -26,11 +67,21 @@ export default function Hero({ introPhase }: HeroProps) {
           </span>
           MISSION CONTROL: ONLINE
         </div>
-        <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
-          GORKEM<br />TANAGARDIGIL
+        <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
+          GORKEM<br />
+          <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            TANAGARDIGIL
+          </span>
         </h1>
+        <div className="text-lg md:text-2xl mb-6 h-8">
+          {prefersReducedMotion ? (
+            <span className="text-cyan-400 font-mono">{roles[0]}</span>
+          ) : (
+            <TypingEffect />
+          )}
+        </div>
         <p className="text-lg md:text-xl text-cyan-100 max-w-2xl mx-auto leading-relaxed">
-          Senior Software Engineer blending <span className="text-cyan-400">naval discipline</span> with
+          Blending <span className="text-cyan-400 font-semibold">naval discipline</span> with
           modern cloud engineering. I build resilient systems that stay online when the seas get
           rough.
         </p>
@@ -50,6 +101,16 @@ export default function Hero({ introPhase }: HeroProps) {
             className="border border-cyan-500/50 text-cyan-200 px-6 py-3 rounded-full hover:border-cyan-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
           >
             Open Channel
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-cyan-500/30 text-cyan-300 px-6 py-3 rounded-full hover:border-cyan-400 hover:text-white hover:bg-cyan-950/40 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
+          >
+            <Download size={16} /> Resume
           </motion.a>
         </div>
       </motion.div>

@@ -150,7 +150,7 @@ export const signals = [
   {
     label: "LinkedIn",
     value: "linkedin.com/in/gorkemtanagardigil",
-    href: "https://www.linkedin.com/in/gorkemtanagardigil",
+    href: "https://www.linkedin.com/in/gorkem-tanagardigil",
   },
   {
     label: "GitHub",
