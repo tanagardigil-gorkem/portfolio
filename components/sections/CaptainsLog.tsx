@@ -37,7 +37,7 @@ export default function CaptainsLog() {
           Dispatches
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-4xl font-bold mb-4 text-white">Captain&apos;s Log</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Captain&apos;s Log</h2>
         <p className="text-cyan-200/60 max-w-2xl mx-auto">
           Field notes on engineering, architecture, and lessons learned from the deep.
         </p>

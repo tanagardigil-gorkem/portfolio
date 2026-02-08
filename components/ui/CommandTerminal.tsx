@@ -305,7 +305,7 @@ export default function CommandTerminal() {
             <div
               ref={scrollRef}
               onClick={() => inputRef.current?.focus()}
-              className="flex-1 bg-[#060a14]/95 backdrop-blur-md p-4 overflow-y-auto font-mono text-sm leading-relaxed min-h-[300px] max-h-[50vh] cursor-text terminal-scroll"
+              className="flex-1 bg-[#060a14]/95 backdrop-blur-md p-3 sm:p-4 overflow-y-auto font-mono text-xs sm:text-sm leading-relaxed min-h-[250px] sm:min-h-[300px] max-h-[50vh] cursor-text terminal-scroll"
             >
               {lines.map((line, i) => (
                 <div
@@ -327,7 +327,7 @@ export default function CommandTerminal() {
               ))}
 
               <div className="flex items-center gap-0 mt-1">
-                <span className="text-cyan-500/70 shrink-0">visitor@gorkem.dev:~$&nbsp;</span>
+                <span className="text-cyan-500/70 shrink-0"><span className="hidden sm:inline">visitor@gorkem.dev</span><span className="sm:hidden">gorkem</span>:~$&nbsp;</span>
                 <input
                   ref={inputRef}
                   type="text"

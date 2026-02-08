@@ -40,7 +40,7 @@ export default function Endorsements() {
           Crew Reports
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-4xl font-bold mb-4 text-white">Endorsements</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Endorsements</h2>
         <p className="text-cyan-200/60">What the crew says about working together.</p>
       </motion.div>
 
@@ -53,11 +53,12 @@ export default function Endorsements() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-cyan-500/5 rounded-3xl blur-xl" />
 
-        <div className="relative border border-cyan-900/30 bg-[#0a1529]/70 backdrop-blur-md rounded-2xl p-6 sm:p-10 overflow-hidden min-h-[280px] flex flex-col justify-between">
+        <div className="relative border border-cyan-900/30 bg-[#0a1529]/70 backdrop-blur-md rounded-2xl p-5 sm:p-10 overflow-hidden min-h-[240px] sm:min-h-[280px] flex flex-col justify-between">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent -skew-x-12 translate-x-[-100%] animate-shimmer pointer-events-none" />
 
-          <div className="absolute top-6 right-6 text-cyan-500/10">
-            <Quote size={64} aria-hidden="true" />
+          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 text-cyan-500/10">
+            <Quote size={40} className="sm:hidden" aria-hidden="true" />
+            <Quote size={64} className="hidden sm:block" aria-hidden="true" />
           </div>
 
           <div className="relative z-10 flex-1">

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gorkem Tanagardigil | Subsurface Portfolio",
     description: "Mission-critical software engineer with naval roots. Backend, cloud, and stability focused.",
-    url: "https://gorkem.dev",
+    url: "https://www.gorkemtanagardigil.com",
     siteName: "Gorkem Tanagardigil",
     type: "website",
   },

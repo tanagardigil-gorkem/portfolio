@@ -98,8 +98,8 @@ function renderMarkdown(content: string) {
                 {codeLang}
               </div>
             )}
-            <pre className="bg-[#060a14] p-4 overflow-x-auto">
-              <code className="text-sm font-mono text-cyan-200/80 leading-relaxed">
+            <pre className="bg-[#060a14] p-3 sm:p-4 overflow-x-auto">
+              <code className="text-xs sm:text-sm font-mono text-cyan-200/80 leading-relaxed">
                 {codeLines.join("\n")}
               </code>
             </pre>
@@ -144,13 +144,13 @@ function renderMarkdown(content: string) {
       if (isLastTableRow) {
         elements.push(
           <div key={`table-${i}`} className="my-6 overflow-x-auto rounded-xl border border-cyan-900/40">
-            <table className="w-full text-sm">
+            <table className="w-full text-xs sm:text-sm">
               <thead>
                 <tr className="bg-[#0a0e1a] border-b border-cyan-900/30">
                   {tableRows[0].map((cell, ci) => (
                     <th
                       key={ci}
-                      className="px-4 py-3 text-left font-mono text-cyan-300 text-xs uppercase tracking-wider"
+                      className="px-3 sm:px-4 py-2 sm:py-3 text-left font-mono text-cyan-300 text-[10px] sm:text-xs uppercase tracking-wider whitespace-nowrap"
                     >
                       {cell}
                     </th>
@@ -164,7 +164,7 @@ function renderMarkdown(content: string) {
                     className="border-b border-cyan-900/20 last:border-0 bg-[#060a14]/60"
                   >
                     {row.map((cell, ci) => (
-                      <td key={ci} className="px-4 py-3 text-slate-300/80">
+                      <td key={ci} className="px-3 sm:px-4 py-2 sm:py-3 text-slate-300/80 whitespace-nowrap">
                         {cell}
                       </td>
                     ))}

@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { Activity } from "lucide-react";
 import { activityData } from "../../data/portfolio";
 
-const CELL_SIZE = 13;
+const CELL_SIZE_SM = 10;
+const CELL_SIZE_LG = 13;
 const CELL_GAP = 3;
 const DAYS_IN_WEEK = 7;
 
@@ -95,8 +96,8 @@ export default function ActivityHeatmap() {
           Operations Tempo
           <span className="w-8 h-px bg-cyan-500/50" />
         </div>
-        <h2 className="text-4xl font-bold mb-4 text-white">Activity Sonar</h2>
-        <p className="text-cyan-200/60">A year of engineering activity — commits, reviews, and deployments.</p>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Activity Sonar</h2>
+        <p className="text-cyan-200/60 text-sm sm:text-base px-2 sm:px-0">A year of engineering activity — commits, reviews, and deployments.</p>
       </motion.div>
 
       <motion.div
@@ -135,13 +136,16 @@ export default function ActivityHeatmap() {
           </div>
 
           <div className="overflow-x-auto pb-2 -mx-2 px-2">
-            <div className="relative" style={{ minWidth: weeks.length * (CELL_SIZE + CELL_GAP) + 30 }}>
+            <div
+              className="relative hidden sm:block"
+              style={{ minWidth: weeks.length * (CELL_SIZE_LG + CELL_GAP) + 30 }}
+            >
               <div className="flex gap-0 ml-7 mb-1">
                 {monthLabels.map((m, i) => (
                   <div
                     key={`${m.label}-${i}`}
                     className="text-[9px] font-mono text-cyan-500/50 absolute"
-                    style={{ left: m.col * (CELL_SIZE + CELL_GAP) + 28 }}
+                    style={{ left: m.col * (CELL_SIZE_LG + CELL_GAP) + 28 }}
                   >
                     {m.label}
                   </div>
@@ -154,7 +158,7 @@ export default function ActivityHeatmap() {
                     <div
                       key={i}
                       className="text-[9px] font-mono text-cyan-500/40 leading-none flex items-center"
-                      style={{ height: CELL_SIZE }}
+                      style={{ height: CELL_SIZE_LG }}
                     >
                       {day}
                     </div>
@@ -171,7 +175,7 @@ export default function ActivityHeatmap() {
                             ? "opacity-0"
                             : `${getIntensityClass(day.count)} hover:ring-1 hover:ring-cyan-400/50 cursor-crosshair`
                         }`}
-                        style={{ width: CELL_SIZE, height: CELL_SIZE }}
+                        style={{ width: CELL_SIZE_LG, height: CELL_SIZE_LG }}
                         onMouseEnter={(e) => {
                           if (day.count === -1) return;
                           const rect = e.currentTarget.getBoundingClientRect();
@@ -183,6 +187,41 @@ export default function ActivityHeatmap() {
                           });
                         }}
                         onMouseLeave={() => setHoveredCell(null)}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className="relative sm:hidden"
+              style={{ minWidth: weeks.length * (CELL_SIZE_SM + CELL_GAP) }}
+            >
+              <div className="flex gap-0 mb-1">
+                {monthLabels.map((m, i) => (
+                  <div
+                    key={`${m.label}-${i}`}
+                    className="text-[8px] font-mono text-cyan-500/50 absolute"
+                    style={{ left: m.col * (CELL_SIZE_SM + CELL_GAP) }}
+                  >
+                    {m.label}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-[3px] mt-4">
+                {weeks.map((week, weekIdx) => (
+                  <div key={weekIdx} className="flex flex-col gap-[3px]">
+                    {week.map((day, dayIdx) => (
+                      <div
+                        key={`${weekIdx}-${dayIdx}`}
+                        className={`rounded-[2px] border transition-all duration-150 ${
+                          day.count === -1
+                            ? "opacity-0"
+                            : getIntensityClass(day.count)
+                        }`}
+                        style={{ width: CELL_SIZE_SM, height: CELL_SIZE_SM }}
                       />
                     ))}
                   </div>
