@@ -1,0 +1,45 @@
+# Dependencies (installed inside Docker)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js / build outputs
+.next/
+out/
+dist/
+build/
+.vercel/
+
+# Tests
+coverage/
+__tests__/
+__mocks__/
+*.test.*
+*.spec.*
+
+# Local / editor
+.git/
+.gitignore
+.vscode/
+.idea/
+*.log
+
+# Env (set in Coolify)
+.env
+.env*.local
+.env.development
+.env.test
+.env.production.local
+
+# Docs / misc (resume lives in public/)
+*.md
+docs/
+.github/
+.DS_Store
+*.pem
+*.tsbuildinfo
+.cursor/
+.claude/
+AGENTS.md
