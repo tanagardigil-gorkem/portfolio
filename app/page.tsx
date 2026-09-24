@@ -1,13 +1,7 @@
-"use client";
-
-import React from "react";
 import PortfolioShell from "../components/PortfolioShell";
-import PortfolioContent from "../components/sections/PortfolioContent";
+import { getGitHubActivity } from "../lib/github-contributions";
 
-export default function DeepDivePortfolio() {
-  return (
-    <PortfolioShell>
-      {(introPhase) => <PortfolioContent introPhase={introPhase} />}
-    </PortfolioShell>
-  );
+export default async function HomePage() {
+  const activity = await getGitHubActivity();
+  return <PortfolioShell activity={activity} />;
 }

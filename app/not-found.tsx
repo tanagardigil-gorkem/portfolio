@@ -216,7 +216,7 @@ export default function NotFound() {
 
       <footer className="relative z-10 text-center py-6">
         <div className="text-[10px] text-slate-600 font-mono">
-          &copy; {new Date().getFullYear()} Gorkem Tanagardigil
+          &copy; {new Date().getFullYear()} Görkem Tanağardıgil
         </div>
       </footer>
     </div>

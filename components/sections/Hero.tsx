@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useTranslation } from "../../lib/i18n/context";
 
 type HeroProps = {
@@ -63,7 +63,7 @@ export default function Hero({ introPhase }: HeroProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={introPhase === "finished" ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 1.5, delay: 0.5 }}
+        transition={{ duration: 0.4, delay: 0 }}
         className="relative z-10"
       >
         <div className="inline-flex items-center gap-2 border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md px-4 py-1 rounded-full text-cyan-300 text-xs font-mono mb-6 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
@@ -73,10 +73,13 @@ export default function Hero({ introPhase }: HeroProps) {
           </span>
           {t.hero.badge}
         </div>
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-2 tracking-tight drop-shadow-lg">
           GORKEM<br />
           <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
             TANAGARDIGIL
+          </span>
+          <span className="block mt-3 text-base sm:text-lg md:text-2xl font-medium tracking-normal text-cyan-100/80">
+            Görkem Tanağardıgil
           </span>
         </h1>
         <div className="text-base sm:text-lg md:text-2xl mb-6 h-7 sm:h-8">
@@ -105,16 +108,6 @@ export default function Hero({ introPhase }: HeroProps) {
             className="border border-cyan-500/50 text-cyan-200 px-6 py-3 rounded-full hover:border-cyan-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
           >
             {t.hero.openChannel}
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-cyan-500/30 text-cyan-300 px-6 py-3 rounded-full hover:border-cyan-400 hover:text-white hover:bg-cyan-950/40 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
-          >
-            <Download size={16} /> {t.nav.resume}
           </motion.a>
         </div>
       </motion.div>

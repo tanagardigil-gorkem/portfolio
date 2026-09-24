@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Send, Download } from "lucide-react";
+import { Send } from "lucide-react";
 import { useTranslation } from "../../lib/i18n/context";
 
 export default function FinalCta() {
@@ -42,16 +42,6 @@ export default function FinalCta() {
                 className="bg-cyan-600 text-white font-bold px-8 py-4 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:bg-cyan-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36] flex items-center justify-center gap-2"
               >
                 <Send size={16} /> {t.cta.contact}
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-cyan-500/40 text-cyan-200 font-bold px-8 py-4 rounded-full hover:border-cyan-400 hover:text-white hover:bg-cyan-950/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36] flex items-center justify-center gap-2"
-              >
-                <Download size={16} /> {t.cta.downloadResume}
               </motion.a>
             </div>
           </div>

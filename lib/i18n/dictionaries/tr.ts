@@ -8,7 +8,6 @@ const tr: Dictionary = {
     captainsLog: "Kaptan Günlüğü",
     signals: "Sinyaller",
     cv: "CV",
-    resume: "Özgeçmiş",
   },
   hero: {
     badge: "GÖREV KONTROLÜ: ÇEVRİMİÇİ",
@@ -26,9 +25,10 @@ const tr: Dictionary = {
   stats: {
     yearsTitle: "Hizmet Yılı",
     yearsDetail: "Mühendislik ve denizcilik liderliği bir arada.",
-    incidentsTitle: "Çözülen Olay",
+    incidentsTitle: "Olay Müdahalesi",
+    incidentsValue: "Nöbet",
     incidentsDetail:
-      "Stabilite düzeltmeleri, kök neden analizleri ve nöbet müdahaleleri.",
+      "Üretim sistemlerinde kök neden analizi ve stabilite düzeltmeleri.",
     deployTitle: "Dağıtım Sıklığı",
     deployValue: "Günlük",
     deployDetail:
@@ -50,7 +50,7 @@ const tr: Dictionary = {
   },
   missions: [
     {
-      role: "Kıdemli Full Stack Geliştirici",
+      role: "Kıdemli Yazılım Mühendisi",
       period: "Mar 2023 - Devam Ediyor",
       summary:
         "AWS EKS üzerinde Spring Boot mikroservisleri, GitHub Actions ile CI/CD, MongoDB Atlas/on-prem performans optimizasyonu ve güvenilir iş akışları için RabbitMQ + Redis entegrasyonu.",
@@ -119,7 +119,7 @@ const tr: Dictionary = {
     label: "Operasyon Temposu",
     title: "Aktivite Sonarı",
     description:
-      "Bir yıllık mühendislik aktivitesi — commitler, incelemeler ve dağıtımlar.",
+      "Son bir yılın GitHub katkıları — commit, pull request, inceleme ve issue.",
     contributions: "katkı",
     inLastYear: "son bir yılda",
     less: "Az",
@@ -141,36 +141,17 @@ const tr: Dictionary = {
       {
         title: "Kubernetes Savaş Hikayeleri: Üretimden Dersler",
         excerpt:
-          "Gerçek olaylar, gerçek çözümler. EKS üzerinde 50+ mikroservis yönetmek bana konteyner orkestrasyon hakkında ne öğretti.",
+          "Gerçek olaylar, gerçek çözümler. EKS üzerinde bir bordro platformu işletmek bana konteyner orkestrasyon hakkında ne öğretti.",
       },
       {
         title: "Spring Boot Performansı: Varsayılanların Ötesinde",
         excerpt:
-          "Varsayılan yapılandırmalar başlangıç noktalarıdır, hedef değil. API yanıt sürelerimizi %60 nasıl düşürdük.",
+          "Varsayılan yapılandırmalar başlangıç noktalarıdır, hedef değil. Bir bordro API'si yük altında yavaşken neyi değiştirdik.",
       },
       {
         title: "Ajantik Yapay Zeka: Adım Adım Düşünen Sistemler İnşa Etmek",
         excerpt:
           "Chatbotların ötesinde — planlayan, yürüten ve kendini düzeltebilen otonom yapay zeka ajanlarını nasıl keşfediyorum.",
-      },
-    ],
-  },
-  endorsements: {
-    label: "Mürettebat Raporları",
-    title: "Tavsiyeler",
-    description: "Mürettebat birlikte çalışmak hakkında ne diyor.",
-    items: [
-      {
-        text: "Gorkem, yazılım mühendisliğinde nadir görülen bir operasyonel disiplin getiriyor. Üretim sistemlerimiz baskı altındayken herkesin başvurduğu kişi o. Denizcilik geçmişi sadece bir konuşma konusu değil — arıza için nasıl mimari kurduğunda ve olaylar sırasında nasıl sakin kaldığında görebilirsiniz.",
-      },
-      {
-        text: "Gorkem ile çalışmak, bakımı kolay sistemler inşa etmede bir ustalık dersiydi. Sadece çalışan kod yazmaz — başkalarının anlayabileceği, genişletebileceği ve sabah 3'te hata ayıklayabileceği kod yazar. Spring Boot uzmanlığı derin ve pratiktir.",
-      },
-      {
-        text: "Gorkem'in backend API'leri, IoT entegrasyonları ve mobil geliştirme arasında geçiş yapabilme yeteneği etkileyiciydi. Junior geliştiricilerimize sabırla mentorluk yaptı ve her zaman daha iyi test pratikleri için baskı yaptı. Her takımda gerçek bir güç çarpanı.",
-      },
-      {
-        text: "Birçok backend mühendisiyle çalıştım ama Gorkem bambaşka bir ligde. Sadece API sunmaz — frontend tarafındaki geliştirici deneyimini de düşünür. Endpoint'leri temiz, iyi dokümante edilmiş ve entegre etmek bir zevk. Üstelik, sistem tasarımını ekipler arası iş birliğini zahmetsiz kılan bir seviyede anlıyor. Backend ve frontend arasındaki boşluğu sürtünmesiz kapatan birine ihtiyacınız varsa, Gorkem sizin kişiniz.",
       },
     ],
   },
@@ -194,7 +175,6 @@ const tr: Dictionary = {
     description:
       "İster altyapı ölçeklendirme, ister backend güçlendirme, ister bulut-yerel sistem tasarımı olsun — dalışa hazırım.",
     contact: "İletişime Geç",
-    downloadResume: "Özgeçmişi İndir",
   },
   footer: {
     tagline:
@@ -231,7 +211,7 @@ const tr: Dictionary = {
     scanBarIdentified: "HEDEF TANIMLANDI — ERİŞİM VERİLDİ",
     identityVerified: "Kimlik Doğrulandı",
     role: "Rol",
-    seniorEngineer: "Kıdemli Mühendis",
+    seniorEngineer: "Kıdemli Yazılım Mühendisi",
     access: "Erişim",
     granted: "Verildi",
     skip: "Geç",

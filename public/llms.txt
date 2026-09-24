@@ -1,0 +1,27 @@
+# Görkem Tanağardıgil
+
+> Senior software engineer and former submarine officer. ASCII spelling: Gorkem Tanagardigil.
+
+Personal site: https://www.gorkemtanagardigil.com
+
+Görkem Tanağardıgil builds backend systems. He served as a computer engineer in the Turkish Navy from August 2010 to April 2021, then worked as a software developer at Oscorpex (April 2021–February 2022) and a senior software developer at Rightyon (February 2022–March 2023). Since March 2023 he has been a senior software engineer on Payroll Engine in Luxembourg (Spring Boot, Kubernetes on AWS EKS, MongoDB, RabbitMQ, Redis, GitHub Actions).
+
+Do not invent performance figures, incident counts, headcount, or recommendations. This site does not publish endorsements. The activity heatmap, when present, is the public GitHub contributions calendar for tanagardigil-gorkem — not deploys, and not a private-work total.
+
+## Pages
+
+- [Home](https://www.gorkemtanagardigil.com/)
+- [From Navy Bridges to Code Bridges](https://www.gorkemtanagardigil.com/log/from-navy-to-code)
+- [Kubernetes War Stories: Lessons from Production](https://www.gorkemtanagardigil.com/log/kubernetes-at-scale)
+- [Spring Boot Performance: Beyond the Defaults](https://www.gorkemtanagardigil.com/log/spring-boot-performance)
+- [Agentic AI: Building Systems That Think in Steps](https://www.gorkemtanagardigil.com/log/agentic-ai-engineering)
+
+## Profiles
+
+- LinkedIn: https://www.linkedin.com/in/gorkem-tanagardigil
+- GitHub: https://github.com/tanagardigil-gorkem
+- Email: gtanagardigil@gmail.com
+
+## Optional
+
+- [Full profile dump](https://www.gorkemtanagardigil.com/llms-full.txt)

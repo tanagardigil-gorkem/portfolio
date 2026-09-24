@@ -24,8 +24,11 @@ export default function Footer() {
           <div>
             <a href="#top" className="flex items-center gap-3 text-cyan-400 mb-3">
               <Logo size={28} />
-              <span className="font-mono text-sm font-bold tracking-wider">
-                GORKEM TANAGARDIGIL
+              <span className="flex flex-col">
+                <span className="font-mono text-sm font-bold tracking-wider">
+                  GORKEM TANAGARDIGIL
+                </span>
+                <span className="text-xs text-cyan-200/70">Görkem Tanağardıgil</span>
               </span>
             </a>
             <p className="text-sm text-slate-400 leading-relaxed">
@@ -72,7 +75,7 @@ export default function Footer() {
 
         <div className="border-t border-cyan-900/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="text-xs text-slate-500 font-mono">
-            &copy; {year} Gorkem Tanagardigil. {t.footer.rights}
+            &copy; {year} Görkem Tanağardıgil. {t.footer.rights}
           </div>
           <div className="text-xs text-slate-600 font-mono">
             {t.footer.builtWith}

@@ -8,11 +8,13 @@ import SceneOverlays from "./overlays/SceneOverlays";
 import Navigation from "./ui/Navigation";
 import SkipToContent from "./ui/SkipToContent";
 import CommandTerminal from "./ui/CommandTerminal";
+import PortfolioContent from "./sections/PortfolioContent";
+import type { GitHubActivity } from "../lib/activity";
 
 type IntroPhase = "scanning" | "locking" | "identified" | "finished";
 
 type PortfolioShellProps = {
-  children: (introPhase: IntroPhase) => React.ReactNode;
+  activity: GitHubActivity | null;
 };
 
 const emptySubscribe = () => () => {};
@@ -25,7 +27,7 @@ function useIntroDone() {
   );
 }
 
-export default function PortfolioShell({ children }: PortfolioShellProps) {
+export default function PortfolioShell({ activity }: PortfolioShellProps) {
   const { scrollY } = useScroll();
   const prefersReducedMotion = useReducedMotion();
   const introDone = useIntroDone();
@@ -42,16 +44,16 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
 
     const timerLock = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("locking");
-    }, 2500);
+    }, 400);
     const timerIdentify = setTimeout(() => {
       if (!skippedRef.current) setIntroPhase("identified");
-    }, 5000);
+    }, 800);
     const timerFinish = setTimeout(() => {
       if (!skippedRef.current) {
         setIntroPhase("finished");
         sessionStorage.setItem("intro-done", "1");
       }
-    }, 7500);
+    }, 1500);
 
     return () => {
       clearTimeout(timerLock);
@@ -104,7 +106,7 @@ export default function PortfolioShell({ children }: PortfolioShellProps) {
           <div className="w-px h-32 bg-gradient-to-t from-transparent via-cyan-500 to-transparent" />
         </motion.div>
 
-        {children(introPhase)}
+        <PortfolioContent introPhase={introPhase} activity={activity} />
       </div>
 
       <AnimatePresence>

@@ -368,7 +368,7 @@ const GlitchReveal = () => {
         arr[revealed] = name[revealed];
         return arr.join("");
       });
-    }, 60);
+    }, 25);
 
     return () => {
       clearInterval(flickerInterval);
@@ -415,9 +415,12 @@ const IdentityCard = ({ phase, t }: { phase: "scanning" | "locking" | "identifie
           <div className="text-[9px] text-green-400 uppercase tracking-[0.4em] mb-4 font-mono">
             ✓ {t.intro.identityVerified}
           </div>
-          <h1 className="text-lg sm:text-2xl md:text-3xl font-bold font-mono tracking-tight text-white mb-3">
+          <h1 className="text-lg sm:text-2xl md:text-3xl font-bold font-mono tracking-tight text-white mb-1">
             <GlitchReveal />
           </h1>
+          <div className="text-[11px] sm:text-xs text-cyan-200/80 mb-3 tracking-wide">
+            Görkem Tanağardıgil
+          </div>
           <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent mb-3" />
           <div className="flex justify-center gap-6 text-[9px] font-mono uppercase tracking-[0.2em]">
             <span className="text-cyan-400/80">{t.intro.role}: <span className="text-white">{t.intro.seniorEngineer}</span></span>
@@ -462,7 +465,7 @@ export default function IntroSequence({ introPhase, onSkip }: IntroSequenceProps
       {introPhase !== "finished" && (
         <motion.div
           className="fixed inset-0 z-[100] bg-black flex items-center justify-center overflow-hidden font-mono"
-          exit={{ opacity: 0, scale: 1.05, transition: { duration: 1.2, ease: "easeInOut" } }}
+          exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.35, ease: "easeInOut" } }}
         >
           <DeepSeaBackground phase={introPhase} />
           <SonarPings phase={introPhase} />

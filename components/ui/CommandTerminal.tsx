@@ -45,7 +45,7 @@ const COMMANDS: Record<string, () => Line[]> = {
   about: () => [
     { type: "output", text: "┌─ PERSONNEL FILE ─────────────────────────────────┐" },
     { type: "output", text: "│                                                   │" },
-    { type: "output", text: "│  Name:     Gorkem Tanagardigil                    │" },
+    { type: "output", text: "│  Name:     Görkem Tanağardıgil                    │" },
     { type: "output", text: "│  Role:     Senior Software Engineer               │" },
     { type: "output", text: "│  Origin:   Turkish Navy (2010-2021)               │" },
     { type: "output", text: "│  Focus:    Backend · Cloud · Resilient Systems    │" },
@@ -69,7 +69,7 @@ const COMMANDS: Record<string, () => Line[]> = {
   experience: () => [
     { type: "output", text: "MISSION HISTORY:" },
     { type: "output", text: "" },
-    { type: "output", text: "  [2023-NOW]  Senior Full Stack Developer — Payroll Engine" },
+    { type: "output", text: "  [2023-NOW]  Senior Software Engineer — Payroll Engine" },
     { type: "output", text: "              Spring Boot microservices on AWS EKS" },
     { type: "output", text: "" },
     { type: "output", text: "  [2022-2023] Senior Software Developer — Rightyon" },
