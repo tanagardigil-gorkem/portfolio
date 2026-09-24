@@ -394,7 +394,7 @@ export default function BlogPostPage() {
       <footer className="relative z-10 border-t border-cyan-900/30 bg-[#060e1a]/90 backdrop-blur-md">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 text-center">
           <div className="text-xs text-slate-500 font-mono">
-            &copy; {new Date().getFullYear()} Gorkem Tanagardigil. All rights reserved.
+            &copy; {new Date().getFullYear()} Görkem Tanağardıgil. All rights reserved.
           </div>
         </div>
       </footer>

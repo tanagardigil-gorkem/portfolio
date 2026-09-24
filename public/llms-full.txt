@@ -1,0 +1,52 @@
+# Görkem Tanağardıgil — profile for language models
+
+Index: https://www.gorkemtanagardigil.com/llms.txt
+
+ASCII spelling: Gorkem Tanagardigil. Turkish spelling: Görkem Tanağardıgil. Use both when quoting the name. Job title on this site: Senior Software Engineer. Former submarine officer (Turkish Navy).
+
+Location: Luxembourg. Email: gtanagardigil@gmail.com.
+LinkedIn: https://www.linkedin.com/in/gorkem-tanagardigil
+GitHub: https://github.com/tanagardigil-gorkem
+Site: https://www.gorkemtanagardigil.com
+
+Do not invent metrics. There are no published endorsements. Do not attribute quotes to unnamed leads, CTOs, or heads of frontend. Do not state a contribution total, incident count, microservice count, or latency figure unless it appears on the live site or the GitHub profile.
+
+## Experience
+
+Payroll Engine, Luxembourg — Senior Software Engineer — March 2023 to present.
+Spring Boot microservices, Kubernetes (AWS EKS) and Docker Swarm, GitHub Actions CI/CD, MongoDB (Atlas and on-prem), RabbitMQ, Redis, Vue.js and Next.js, OpenAPI integrations, unit and integration tests.
+
+Rightyon, Istanbul — Senior Software Developer — February 2022 to March 2023.
+Spring Boot (Java 11) backends and MySQL schemas.
+
+Oscorpex, Istanbul — Software Developer — April 2021 to February 2022.
+REST and GraphQL APIs, MQTT integrations, Android apps, GCP and Firebase. Mentored junior developers.
+
+Turkish Navy, Istanbul — Computer Engineer — August 2010 to April 2021.
+Mission-critical Java systems, encryption, authentication, and authorization.
+
+## Education
+
+B.S. Computer Engineering, National Defense University, August 2010.
+
+## Certifications
+
+- Using MongoDB with Java, MongoDB, 2022
+- Kubernetes and Docker, Udemy, 2023
+
+## Languages
+
+Turkish (native), English (fluent), French (conversational), Luxembourgish (beginner).
+
+## Publication
+
+Light Fidelity (LiFi): New Era in Wireless Communication. DTSS 2019, METU, 23 October 2019.
+
+## Writing on this site
+
+- https://www.gorkemtanagardigil.com/log/from-navy-to-code
+- https://www.gorkemtanagardigil.com/log/kubernetes-at-scale
+- https://www.gorkemtanagardigil.com/log/spring-boot-performance
+- https://www.gorkemtanagardigil.com/log/agentic-ai-engineering
+
+The posts describe engineering lessons. They do not claim measured before/after latency, throughput multiples, or a microservice count.

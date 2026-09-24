@@ -27,6 +27,10 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Public GitHub contributions calendar. Omit the arg and the heatmap is left out.
+ARG GITHUB_TOKEN
+ENV GITHUB_TOKEN=$GITHUB_TOKEN
+
 RUN npm run build
 
 # ============================================

@@ -8,7 +8,6 @@ const de: Dictionary = {
     captainsLog: "Kapitänslog",
     signals: "Signale",
     cv: "CV",
-    resume: "Lebenslauf",
   },
   hero: {
     badge: "MISSIONSKONTROLLE: ONLINE",
@@ -26,9 +25,10 @@ const de: Dictionary = {
   stats: {
     yearsTitle: "Jahre im Dienst",
     yearsDetail: "Ingenieurwesen und maritime Führung vereint.",
-    incidentsTitle: "Gelöste Vorfälle",
+    incidentsTitle: "Störungsreaktion",
+    incidentsValue: "Bereitschaft",
     incidentsDetail:
-      "Stabilitätskorrekturen, Ursachenanalysen und Bereitschaftsmaßnahmen.",
+      "Ursachenanalysen und Stabilitätskorrekturen an Produktionssystemen.",
     deployTitle: "Deployment-Takt",
     deployValue: "Täglich",
     deployDetail:
@@ -50,7 +50,7 @@ const de: Dictionary = {
   },
   missions: [
     {
-      role: "Senior Full-Stack-Entwickler",
+      role: "Senior Software Engineer",
       period: "Mär 2023 - Heute",
       summary:
         "Bereitstellung von Spring-Boot-Microservices auf AWS EKS mit CI/CD über GitHub Actions, Optimierung der MongoDB Atlas/On-Prem-Performance und Integration von RabbitMQ + Redis für zuverlässige Workflows.",
@@ -119,7 +119,7 @@ const de: Dictionary = {
     label: "Operationstempo",
     title: "Aktivitätssonar",
     description:
-      "Ein Jahr Ingenieuraktivität — Commits, Reviews und Deployments.",
+      "GitHub-Beiträge des letzten Jahres — Commits, Pull Requests, Reviews und Issues.",
     contributions: "Beiträge",
     inLastYear: "im letzten Jahr",
     less: "Weniger",
@@ -141,36 +141,17 @@ const de: Dictionary = {
       {
         title: "Kubernetes-Kriegsgeschichten: Lektionen aus der Produktion",
         excerpt:
-          "Echte Vorfälle, echte Lösungen. Was der Betrieb von 50+ Microservices auf EKS mich über Container-Orchestrierung gelehrt hat.",
+          "Echte Vorfälle, echte Lösungen. Was der Betrieb einer Payroll-Plattform auf EKS mich über Container-Orchestrierung gelehrt hat.",
       },
       {
         title: "Spring Boot Performance: Jenseits der Standardeinstellungen",
         excerpt:
-          "Standardkonfigurationen sind Ausgangspunkte, keine Ziele. Wie wir unsere API-Antwortzeiten um 60% reduziert haben.",
+          "Standardkonfigurationen sind Ausgangspunkte, keine Ziele. Was wir geändert haben, als eine Payroll-API unter Last zu langsam war.",
       },
       {
         title: "Agentische KI: Systeme bauen, die in Schritten denken",
         excerpt:
           "Über Chatbots hinaus — wie ich autonome KI-Agenten erforsche, die planen, ausführen und sich selbst korrigieren.",
-      },
-    ],
-  },
-  endorsements: {
-    label: "Crew-Berichte",
-    title: "Empfehlungen",
-    description: "Was die Crew über die Zusammenarbeit sagt.",
-    items: [
-      {
-        text: "Gorkem bringt ein Maß an operativer Disziplin mit, das in der Softwareentwicklung selten ist. Wenn unsere Produktionssysteme unter Druck stehen, ist er die Person, an die sich alle wenden. Sein maritimer Hintergrund ist nicht nur ein Gesprächsthema — man sieht es daran, wie er für Ausfälle architekturiert und bei Vorfällen ruhig bleibt.",
-      },
-      {
-        text: "Mit Gorkem zu arbeiten war eine Meisterklasse im Bau wartbarer Systeme. Er schreibt nicht nur Code, der funktioniert — er schreibt Code, den andere verstehen, erweitern und um 3 Uhr morgens debuggen können. Seine Spring-Boot-Expertise ist tiefgreifend und praxisnah.",
-      },
-      {
-        text: "Gorkems Fähigkeit, zwischen Backend-APIs, IoT-Integrationen und mobiler Entwicklung zu wechseln, war beeindruckend. Er hat unsere Junior-Entwickler geduldig betreut und immer auf bessere Testpraktiken gedrängt. Ein echter Kraftmultiplikator in jedem Team.",
-      },
-      {
-        text: "Ich habe mit vielen Backend-Ingenieuren gearbeitet, aber Gorkem ist in einer eigenen Liga. Er liefert nicht nur APIs — er denkt auch an die Entwicklererfahrung auf der Frontend-Seite. Seine Endpunkte sind sauber, gut dokumentiert und eine Freude zu integrieren. Darüber hinaus versteht er Systemdesign auf einem Niveau, das die teamübergreifende Zusammenarbeit mühelos macht. Wenn Sie jemanden brauchen, der die Lücke zwischen Backend und Frontend reibungslos überbrückt, ist Gorkem Ihre Person.",
       },
     ],
   },
@@ -194,7 +175,6 @@ const de: Dictionary = {
     description:
       "Ob Infrastruktur skalieren, Backends härten oder Cloud-native Systeme entwerfen — ich bin bereit einzutauchen.",
     contact: "Kontakt Aufnehmen",
-    downloadResume: "Lebenslauf Herunterladen",
   },
   footer: {
     tagline:
@@ -231,7 +211,7 @@ const de: Dictionary = {
     scanBarIdentified: "ZIEL IDENTIFIZIERT — FREIGABE ERTEILT",
     identityVerified: "Identität Bestätigt",
     role: "Rolle",
-    seniorEngineer: "Senior Ingenieur",
+    seniorEngineer: "Senior Software Engineer",
     access: "Zugang",
     granted: "Gewährt",
     skip: "Überspringen",

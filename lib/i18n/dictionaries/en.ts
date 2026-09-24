@@ -6,7 +6,6 @@ const en = {
     captainsLog: "Captain's Log",
     signals: "Signals",
     cv: "CV",
-    resume: "Resume",
   },
   hero: {
     badge: "MISSION CONTROL: ONLINE",
@@ -24,9 +23,10 @@ const en = {
   stats: {
     yearsTitle: "Years on Deck",
     yearsDetail: "Engineering and naval leadership combined.",
-    incidentsTitle: "Incidents Resolved",
+    incidentsTitle: "Incident Response",
+    incidentsValue: "On-call",
     incidentsDetail:
-      "Stability fixes, root-cause hunts, and on-call mitigations.",
+      "Root-cause hunts and stability fixes on production systems.",
     deployTitle: "Deploy Cadence",
     deployValue: "Daily",
     deployDetail:
@@ -48,7 +48,7 @@ const en = {
   },
   missions: [
     {
-      role: "Senior Full Stack Developer",
+      role: "Senior Software Engineer",
       period: "Mar 2023 - Present",
       summary:
         "Delivered Spring Boot microservices on AWS EKS with CI/CD in GitHub Actions, optimizing MongoDB Atlas/on-prem performance and integrating RabbitMQ + Redis for reliable workflows.",
@@ -117,7 +117,7 @@ const en = {
     label: "Operations Tempo",
     title: "Activity Sonar",
     description:
-      "A year of engineering activity — commits, reviews, and deployments.",
+      "GitHub contributions over the last year — commits, pull requests, reviews, and issues.",
     contributions: "contributions",
     inLastYear: "in the last year",
     less: "Less",
@@ -139,36 +139,17 @@ const en = {
       {
         title: "Kubernetes War Stories: Lessons from Production",
         excerpt:
-          "Real incidents, real fixes. What running 50+ microservices on EKS taught me about container orchestration.",
+          "Real incidents, real fixes. What running a payroll platform on EKS taught me about container orchestration.",
       },
       {
         title: "Spring Boot Performance: Beyond the Defaults",
         excerpt:
-          "Default configurations are starting points, not destinations. How we cut our API response times by 60%.",
+          "Default configurations are starting points, not destinations. What we changed when a payroll API was too slow under load.",
       },
       {
         title: "Agentic AI: Building Systems That Think in Steps",
         excerpt:
           "Moving beyond chatbots — how I'm exploring autonomous AI agents that plan, execute, and self-correct.",
-      },
-    ],
-  },
-  endorsements: {
-    label: "Crew Reports",
-    title: "Endorsements",
-    description: "What the crew says about working together.",
-    items: [
-      {
-        text: "Gorkem brings a level of operational discipline that's rare in software engineering. When our production systems face pressure, he's the person everyone looks to. His naval background isn't just a talking point — you can see it in how he architects for failure and keeps calm during incidents.",
-      },
-      {
-        text: "Working with Gorkem was a masterclass in building maintainable systems. He doesn't just write code that works — he writes code that other people can understand, extend, and debug at 3 AM. His Spring Boot expertise is deep and practical.",
-      },
-      {
-        text: "Gorkem's ability to context-switch between backend APIs, IoT integrations, and mobile development was impressive. He mentored our junior developers with patience and always pushed for better testing practices. A true force multiplier on any team.",
-      },
-      {
-        text: "I've worked with a lot of backend engineers, but Gorkem is in a league of his own. He doesn't just deliver APIs — he thinks about the developer experience on the frontend side too. His endpoints are clean, well-documented, and a joy to integrate with. On top of that, the guy understands system design at a level that makes cross-team collaboration effortless. If you need someone who bridges the gap between backend and frontend with zero friction, Gorkem is your person.",
       },
     ],
   },
@@ -192,7 +173,6 @@ const en = {
     description:
       "Whether it's scaling infrastructure, hardening backends, or architecting cloud-native systems — I'm ready to dive in.",
     contact: "Initiate Contact",
-    downloadResume: "Download Resume",
   },
   footer: {
     tagline:
@@ -229,7 +209,7 @@ const en = {
     scanBarIdentified: "TARGET IDENTIFIED — CLEARANCE GRANTED",
     identityVerified: "Identity Verified",
     role: "Role",
-    seniorEngineer: "Senior Engineer",
+    seniorEngineer: "Senior Software Engineer",
     access: "Access",
     granted: "Granted",
     skip: "Skip",

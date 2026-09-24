@@ -34,18 +34,12 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
   );
 }
 
-const statMeta: { target: number; suffix: string }[] = [
-  { target: 12, suffix: "+" },
-  { target: 300, suffix: "+" },
-  { target: 0, suffix: "" },
-];
-
 export default function Stats() {
   const { t } = useTranslation();
 
   const stats = [
     { title: t.stats.yearsTitle, value: "12+", detail: t.stats.yearsDetail, target: 12, suffix: "+" },
-    { title: t.stats.incidentsTitle, value: "300+", detail: t.stats.incidentsDetail, target: 300, suffix: "+" },
+    { title: t.stats.incidentsTitle, value: t.stats.incidentsValue, detail: t.stats.incidentsDetail, target: 0, suffix: "" },
     { title: t.stats.deployTitle, value: t.stats.deployValue, detail: t.stats.deployDetail, target: 0, suffix: "" },
   ];
 

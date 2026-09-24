@@ -3,33 +3,54 @@
 import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Activity } from "lucide-react";
-import { activityData } from "../../data/portfolio";
 import { useTranslation } from "../../lib/i18n/context";
+import type { ContributionDay } from "../../lib/activity";
 
 const CELL_SIZE_SM = 10;
 const CELL_SIZE_LG = 13;
 const CELL_GAP = 3;
 const DAYS_IN_WEEK = 7;
 
-function getIntensityClass(count: number): string {
-  if (count === 0) return "bg-cyan-950/30 border-cyan-900/20";
-  if (count <= 2) return "bg-cyan-800/40 border-cyan-700/30";
-  if (count <= 4) return "bg-cyan-600/50 border-cyan-500/30";
-  if (count <= 6) return "bg-cyan-500/70 border-cyan-400/40";
-  return "bg-cyan-400 border-cyan-300/50 shadow-[0_0_6px_rgba(6,182,212,0.4)]";
+const LEVEL_CLASS = [
+  "bg-cyan-950/30 border-cyan-900/20",
+  "bg-cyan-800/40 border-cyan-700/30",
+  "bg-cyan-600/50 border-cyan-500/30",
+  "bg-cyan-500/70 border-cyan-400/40",
+  "bg-cyan-400 border-cyan-300/50 shadow-[0_0_6px_rgba(6,182,212,0.4)]",
+];
+
+function parseIsoDate(iso: string) {
+  const [year, month, day] = iso.split("-").map(Number);
+  return new Date(year, month - 1, day);
 }
 
-function getMonthLabels(data: { date: string; count: number }[]) {
+function quartileThresholds(counts: number[]): [number, number, number] {
+  const positive = counts.filter((count) => count > 0).sort((a, b) => a - b);
+  if (positive.length === 0) return [0, 0, 0];
+  const at = (quantile: number) =>
+    positive[Math.min(positive.length - 1, Math.floor(positive.length * quantile))];
+  return [at(0.25), at(0.5), at(0.75)];
+}
+
+function levelFor(count: number, thresholds: [number, number, number]) {
+  if (count <= 0) return 0;
+  if (count <= thresholds[0]) return 1;
+  if (count <= thresholds[1]) return 2;
+  if (count <= thresholds[2]) return 3;
+  return 4;
+}
+
+function getMonthLabels(data: ContributionDay[]) {
   const labels: { label: string; col: number }[] = [];
   let lastMonth = -1;
   let col = 0;
 
-  const startDate = new Date(data[0].date);
+  const startDate = parseIsoDate(data[0].date);
   const startDay = startDate.getDay();
   let dayIndex = 0;
 
   for (let i = 0; i < data.length; i++) {
-    const d = new Date(data[i].date);
+    const d = parseIsoDate(data[i].date);
     const month = d.getMonth();
     const currentCol = Math.floor((dayIndex + startDay) / DAYS_IN_WEEK);
 
@@ -47,20 +68,25 @@ function getMonthLabels(data: { date: string; count: number }[]) {
   return labels;
 }
 
-export default function ActivityHeatmap() {
+type ActivityHeatmapProps = {
+  total: number;
+  days: ContributionDay[];
+};
+
+export default function ActivityHeatmap({ total, days }: ActivityHeatmapProps) {
   const { t } = useTranslation();
   const [hoveredCell, setHoveredCell] = useState<{ date: string; count: number; x: number; y: number } | null>(null);
 
-  const totalContributions = useMemo(
-    () => activityData.reduce((sum, d) => sum + d.count, 0),
-    []
+  const thresholds = useMemo(
+    () => quartileThresholds(days.map((day) => day.count)),
+    [days]
   );
 
-  const monthLabels = useMemo(() => getMonthLabels(activityData), []);
+  const monthLabels = useMemo(() => getMonthLabels(days), [days]);
 
   const weeks = useMemo(() => {
     const result: { date: string; count: number }[][] = [];
-    const startDate = new Date(activityData[0].date);
+    const startDate = parseIsoDate(days[0].date);
     const startDay = startDate.getDay();
 
     // Pad the first week
@@ -70,7 +96,7 @@ export default function ActivityHeatmap() {
     }
 
     let currentWeek = firstWeek;
-    for (const entry of activityData) {
+    for (const entry of days) {
       currentWeek.push(entry);
       if (currentWeek.length === DAYS_IN_WEEK) {
         result.push(currentWeek);
@@ -82,7 +108,7 @@ export default function ActivityHeatmap() {
     }
 
     return result;
-  }, []);
+  }, [days]);
 
   return (
     <section className="py-28">
@@ -119,7 +145,7 @@ export default function ActivityHeatmap() {
               </div>
               <div>
                 <div className="text-white font-semibold text-sm">
-                  {totalContributions.toLocaleString()} {t.heatmap.contributions}
+                  {total.toLocaleString()} {t.heatmap.contributions}
                 </div>
                 <div className="text-[10px] font-mono text-cyan-500/60">{t.heatmap.inLastYear}</div>
               </div>
@@ -127,10 +153,10 @@ export default function ActivityHeatmap() {
 
             <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-mono text-cyan-500/50">
               <span>{t.heatmap.less}</span>
-              {[0, 1, 3, 5, 7].map((level) => (
+              {[0, 1, 2, 3, 4].map((level) => (
                 <div
                   key={level}
-                  className={`w-3 h-3 rounded-sm border ${getIntensityClass(level)}`}
+                  className={`w-3 h-3 rounded-sm border ${LEVEL_CLASS[level]}`}
                 />
               ))}
               <span>{t.heatmap.more}</span>
@@ -175,7 +201,7 @@ export default function ActivityHeatmap() {
                         className={`rounded-sm border transition-all duration-150 ${
                           day.count === -1
                             ? "opacity-0"
-                            : `${getIntensityClass(day.count)} hover:ring-1 hover:ring-cyan-400/50 cursor-crosshair`
+                            : `${LEVEL_CLASS[levelFor(day.count, thresholds)]} hover:ring-1 hover:ring-cyan-400/50 cursor-crosshair`
                         }`}
                         style={{ width: CELL_SIZE_LG, height: CELL_SIZE_LG }}
                         onMouseEnter={(e) => {
@@ -221,7 +247,7 @@ export default function ActivityHeatmap() {
                         className={`rounded-[2px] border transition-all duration-150 ${
                           day.count === -1
                             ? "opacity-0"
-                            : getIntensityClass(day.count)
+                            : LEVEL_CLASS[levelFor(day.count, thresholds)]
                         }`}
                         style={{ width: CELL_SIZE_SM, height: CELL_SIZE_SM }}
                       />
@@ -245,7 +271,7 @@ export default function ActivityHeatmap() {
                 {hoveredCell.count} {t.heatmap.contributions}
               </div>
               <div className="text-cyan-500/60">
-                {new Date(hoveredCell.date).toLocaleDateString("en-US", {
+                {parseIsoDate(hoveredCell.date).toLocaleDateString("en-US", {
                   weekday: "short",
                   month: "short",
                   day: "numeric",

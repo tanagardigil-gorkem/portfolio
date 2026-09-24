@@ -8,7 +8,6 @@ const fr: Dictionary = {
     captainsLog: "Journal du Capitaine",
     signals: "Signaux",
     cv: "CV",
-    resume: "CV",
   },
   hero: {
     badge: "CONTRÔLE DE MISSION : EN LIGNE",
@@ -26,9 +25,10 @@ const fr: Dictionary = {
   stats: {
     yearsTitle: "Années de Service",
     yearsDetail: "Ingénierie et leadership naval combinés.",
-    incidentsTitle: "Incidents Résolus",
+    incidentsTitle: "Réponse aux incidents",
+    incidentsValue: "Astreinte",
     incidentsDetail:
-      "Corrections de stabilité, analyses de causes racines et atténuations d'astreinte.",
+      "Analyses de causes racines et corrections de stabilité sur les systèmes de production.",
     deployTitle: "Cadence de Déploiement",
     deployValue: "Quotidien",
     deployDetail:
@@ -50,7 +50,7 @@ const fr: Dictionary = {
   },
   missions: [
     {
-      role: "Développeur Full Stack Senior",
+      role: "Ingénieur logiciel senior",
       period: "Mars 2023 - Présent",
       summary:
         "Livraison de microservices Spring Boot sur AWS EKS avec CI/CD via GitHub Actions, optimisation des performances MongoDB Atlas/on-prem et intégration de RabbitMQ + Redis pour des workflows fiables.",
@@ -119,7 +119,7 @@ const fr: Dictionary = {
     label: "Tempo Opérationnel",
     title: "Sonar d'Activité",
     description:
-      "Une année d'activité d'ingénierie — commits, revues et déploiements.",
+      "Contributions GitHub sur un an — commits, pull requests, revues et issues.",
     contributions: "contributions",
     inLastYear: "au cours de l'année",
     less: "Moins",
@@ -141,36 +141,17 @@ const fr: Dictionary = {
       {
         title: "Récits de Guerre Kubernetes : Leçons de la Production",
         excerpt:
-          "De vrais incidents, de vraies corrections. Ce que la gestion de 50+ microservices sur EKS m'a appris sur l'orchestration de conteneurs.",
+          "De vrais incidents, de vraies corrections. Ce que l'exploitation d'une plateforme de paie sur EKS m'a appris sur l'orchestration de conteneurs.",
       },
       {
         title: "Performance Spring Boot : Au-delà des Paramètres par Défaut",
         excerpt:
-          "Les configurations par défaut sont des points de départ, pas des destinations. Comment nous avons réduit nos temps de réponse API de 60%.",
+          "Les configurations par défaut sont des points de départ, pas des destinations. Ce que nous avons changé quand une API de paie était trop lente sous charge.",
       },
       {
         title: "IA Agentique : Construire des Systèmes qui Pensent par Étapes",
         excerpt:
           "Au-delà des chatbots — comment j'explore des agents IA autonomes qui planifient, exécutent et s'auto-corrigent.",
-      },
-    ],
-  },
-  endorsements: {
-    label: "Rapports d'Équipage",
-    title: "Recommandations",
-    description: "Ce que l'équipage dit de notre collaboration.",
-    items: [
-      {
-        text: "Gorkem apporte un niveau de discipline opérationnelle rare en ingénierie logicielle. Quand nos systèmes de production sont sous pression, c'est la personne vers qui tout le monde se tourne. Son parcours naval n'est pas qu'un argument — on le voit dans sa façon d'architecturer pour la défaillance et de rester calme pendant les incidents.",
-      },
-      {
-        text: "Travailler avec Gorkem était une masterclass en construction de systèmes maintenables. Il n'écrit pas juste du code qui fonctionne — il écrit du code que les autres peuvent comprendre, étendre et déboguer à 3h du matin. Son expertise Spring Boot est profonde et pratique.",
-      },
-      {
-        text: "La capacité de Gorkem à basculer entre les APIs backend, les intégrations IoT et le développement mobile était impressionnante. Il a mentoré nos développeurs juniors avec patience et a toujours poussé pour de meilleures pratiques de test. Un véritable multiplicateur de force dans toute équipe.",
-      },
-      {
-        text: "J'ai travaillé avec beaucoup d'ingénieurs backend, mais Gorkem est dans une catégorie à part. Il ne se contente pas de livrer des APIs — il pense aussi à l'expérience développeur côté frontend. Ses endpoints sont propres, bien documentés et un plaisir à intégrer. En plus, il comprend le design système à un niveau qui rend la collaboration inter-équipes sans effort. Si vous avez besoin de quelqu'un qui fait le pont entre backend et frontend sans friction, Gorkem est votre personne.",
       },
     ],
   },
@@ -194,7 +175,6 @@ const fr: Dictionary = {
     description:
       "Que ce soit pour scaler l'infrastructure, renforcer les backends ou architecturer des systèmes cloud-natifs — je suis prêt à plonger.",
     contact: "Initier le Contact",
-    downloadResume: "Télécharger le CV",
   },
   footer: {
     tagline:
@@ -231,7 +211,7 @@ const fr: Dictionary = {
     scanBarIdentified: "CIBLE IDENTIFIÉE — ACCÈS AUTORISÉ",
     identityVerified: "Identité Vérifiée",
     role: "Rôle",
-    seniorEngineer: "Ingénieur Senior",
+    seniorEngineer: "Ingénieur logiciel senior",
     access: "Accès",
     granted: "Autorisé",
     skip: "Passer",
