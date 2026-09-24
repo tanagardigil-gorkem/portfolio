@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useTranslation } from "../../lib/i18n/context";
 
 type HeroProps = {
@@ -105,16 +105,6 @@ export default function Hero({ introPhase }: HeroProps) {
             className="border border-cyan-500/50 text-cyan-200 px-6 py-3 rounded-full hover:border-cyan-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
           >
             {t.hero.openChannel}
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-cyan-500/30 text-cyan-300 px-6 py-3 rounded-full hover:border-cyan-400 hover:text-white hover:bg-cyan-950/40 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1f36]"
-          >
-            <Download size={16} /> {t.nav.resume}
           </motion.a>
         </div>
       </motion.div>
