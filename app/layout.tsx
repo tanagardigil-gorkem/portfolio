@@ -114,9 +114,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${display.variable} ${sans.variable} ${mono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <script type="application/ld+json">{jsonLd}</script>
         <I18nProvider>{children}</I18nProvider>
