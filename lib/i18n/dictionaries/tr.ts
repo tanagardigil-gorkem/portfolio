@@ -13,12 +13,12 @@ const tr: Dictionary = {
     badge: "GÖREV KONTROLÜ: ÇEVRİMİÇİ",
     roles: [
       "Kıdemli Yazılım Mühendisi",
-      "Bulut Mimarı",
-      "Backend Uzmanı",
-      "Eski Deniz Subayı",
+      "Eski Denizaltı Subayı",
+      "Backend & Bulut",
+      "Uygulamalı Yapay Zekâ",
     ],
     description:
-      "<accent>Denizcilik disiplinini</accent> modern bulut mühendisliğiyle birleştiriyorum. Deniz kabarıdığında bile ayakta kalan dayanıklı sistemler inşa ediyorum.",
+      "Eski denizaltı subayıyım. Baskı altında ayakta kalan sistemler kuruyorum: <accent>görev kritik backend'ler</accent> ve güvenilmeden önce test edilen yapay zekâ.",
     viewMissions: "Görevleri Gör",
     openChannel: "Kanal Aç",
   },
@@ -36,9 +36,9 @@ const tr: Dictionary = {
   },
   origin: {
     title: "Köken: Türk Deniz Kuvvetleri",
-    subtitle: "Bilgisayar Mühendisi & Subay | 2010 - 2021",
+    subtitle: "Denizaltı Subayı & Yazılım Mühendisi | 2010 - 2021",
     description:
-      "Dayanıklılığın inşa edildiği yer. Stabilitenin bir özellik değil, zorunluluk olduğu görev kritik Java sistemleri geliştirdim. Sıkı güvenlik şifreleme ve yetkilendirme protokolleri uyguladım.",
+      "Denizaltılarda çeşitli görevlerde bulundum; ulusal ve NATO tatbikatlarına hem planlayıcı hem katılımcı olarak katıldım. Harpoon silah kontrol simülatörü ve seyir veri kaydedici dahil görev kritik deniz sistemleri için yazılım geliştirdim.",
     badge: "DENİZ OPS",
     tags: [
       "Görev Kritik Sistemler",
@@ -68,10 +68,10 @@ const tr: Dictionary = {
         "REST/GraphQL API'leri, MQTT tabanlı IoT entegrasyonları ve GCP/Firebase servisleriyle Android uygulamaları geliştirdim; junior geliştiricilere mentorluk yaptım.",
     },
     {
-      role: "Bilgisayar Mühendisi",
+      role: "Denizaltı Subayı & Yazılım Mühendisi",
       period: "Ağu 2010 - Nis 2021",
       summary:
-        "Şifreleme/yetkilendirme kontrolleriyle görev kritik Java sistemleri geliştirdim; on-prem ve web platformlarında stabilite odaklı bakım yaptım.",
+        "Denizaltılarda görev yaptım; NATO tatbikatlarına planlayıcı ve katılımcı olarak katıldım. Şifreleme ve erişim kontrollü görev kritik deniz yazılımları geliştirdim.",
     },
   ],
   projects: {
@@ -84,10 +84,15 @@ const tr: Dictionary = {
       },
       {
         description:
-          "Tek bir platform olarak sunulan backend servisleri ve iki Android uygulaması.",
+          "Yüzsüz kanallar için yapay zekâ video stüdyosu: tek bir brief, seslendirilmiş uzun bir videoya ve Shorts'a dönüşür; içerik üreticisi onaylar, ardından YouTube, TikTok ve Instagram'a planlı olarak yayınlanır.",
       },
       {
-        description: "Bulut bağlantılı bir uygulama için backend servisleri.",
+        description:
+          "Sınır ötesi çalışanların uzaktan çalışma günlerini yıllık limitlere göre takip etmesini sağlayan telefon ve saat uygulaması.",
+      },
+      {
+        description:
+          "Eski COBOL kodlarından iş kurallarını yapay zekâ ile çıkarma deneyi: çıkan kurallar elle yazılmış bir cevap anahtarıyla karşılaştırılıyor ve davranışın aynı olduğu tekrar çalıştırılarak doğrulanıyor.",
       },
     ],
     additional: [
@@ -96,6 +101,8 @@ const tr: Dictionary = {
       { name: "Stok Yönetim Sistemi" },
       { name: "Testokur" },
       { name: "Seyir Veri Kaydedici" },
+      { name: "ServisRotam" },
+      { name: "Sayiyo" },
     ],
   },
   missionLog: {
@@ -169,11 +176,11 @@ const tr: Dictionary = {
       "İş birliği, danışmanlık ve görev davetiyeleri için doğrudan hatlar.",
   },
   cta: {
-    label: "Bir sonraki göreve hazır mısınız?",
+    label: "Birlikte çalışalım",
     title: "Birlikte",
     titleAccent: "Dayanıklı Bir Şey İnşa Edelim",
     description:
-      "İster altyapı ölçeklendirme, ister backend güçlendirme, ister bulut-yerel sistem tasarımı olsun — dalışa hazırım.",
+      "Kıdemli backend ya da uygulamalı yapay zekâ rolü için mi arıyorsunuz, yoksa denizaltı ve sualtı sistemlerinde operatör gözüne mi ihtiyacınız var? Kısa bir not bırakın, iki iş günü içinde dönüş yaparım.",
     contact: "İletişime Geç",
   },
   footer: {

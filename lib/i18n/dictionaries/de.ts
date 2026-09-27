@@ -13,12 +13,12 @@ const de: Dictionary = {
     badge: "MISSIONSKONTROLLE: ONLINE",
     roles: [
       "Senior Software-Ingenieur",
-      "Cloud-Architekt",
-      "Backend-Spezialist",
-      "Ehemaliger Marineoffizier",
+      "Ehemaliger U-Boot-Offizier",
+      "Backend & Cloud",
+      "Angewandte KI",
     ],
     description:
-      "Verbindung von <accent>maritimer Disziplin</accent> mit moderner Cloud-Technik. Ich baue belastbare Systeme, die auch bei rauer See online bleiben.",
+      "Ehemaliger U-Boot-Offizier. Ich baue Systeme, die unter Druck standhalten: <accent>missionskritische Backends</accent> und angewandte KI, die getestet wird, bevor man ihr vertraut.",
     viewMissions: "Missionen Ansehen",
     openChannel: "Kanal Öffnen",
   },
@@ -36,9 +36,9 @@ const de: Dictionary = {
   },
   origin: {
     title: "Herkunft: Türkische Marine",
-    subtitle: "Informatik-Ingenieur & Offizier | 2010 - 2021",
+    subtitle: "U-Boot-Offizier & Software-Ingenieur | 2010 - 2021",
     description:
-      "Wo Belastbarkeit geschmiedet wurde. Entwicklung missionskritischer Java-Systeme, bei denen Stabilität eine Notwendigkeit war, kein Feature. Implementierung strenger Verschlüsselungs- und Autorisierungsprotokolle.",
+      "Dienst auf U-Booten in verschiedenen Funktionen, darunter nationale und NATO-Übungen als Planer und Teilnehmer. Software für missionskritische Marinesysteme, darunter ein Harpoon-Feuerleitsimulator und ein Schiffsdatenschreiber.",
     badge: "MARINE OPS",
     tags: [
       "Missionskritische Systeme",
@@ -68,10 +68,10 @@ const de: Dictionary = {
         "Bereitstellung von REST/GraphQL-APIs, MQTT-basierten IoT-Integrationen und Android-Apps mit GCP/Firebase-Diensten bei gleichzeitigem Mentoring von Junior-Entwicklern.",
     },
     {
-      role: "Informatik-Ingenieur",
+      role: "U-Boot-Offizier & Software-Ingenieur",
       period: "Aug 2010 - Apr 2021",
       summary:
-        "Entwicklung missionskritischer Java-Systeme mit Verschlüsselungs-/Autorisierungskontrollen und stabilitätsorientierter Wartung auf On-Prem- und Web-Plattformen.",
+        "Dienst auf U-Booten, darunter NATO-Übungen als Planer und Teilnehmer. Entwicklung missionskritischer Marinesoftware mit Verschlüsselung und Zugriffskontrollen.",
     },
   ],
   projects: {
@@ -84,10 +84,15 @@ const de: Dictionary = {
       },
       {
         description:
-          "Backend-Dienste und zwei Android-Anwendungen als einheitliche Plattform bereitgestellt.",
+          "KI-Videostudio für gesichtslose Kanäle: Aus einem Briefing entstehen ein vertontes Langvideo und Shorts, vom Creator freigegeben und dann nach Plan auf YouTube, TikTok und Instagram veröffentlicht.",
       },
       {
-        description: "Backend-Dienste für eine cloud-verbundene Anwendung.",
+        description:
+          "Eine App, mit der Grenzgänger ihre Homeoffice-Tage gegen jährliche Grenzen verfolgen, auf dem Handy und am Handgelenk.",
+      },
+      {
+        description:
+          "Ein Experiment, Geschäftsregeln per KI aus Legacy-COBOL-Code zu extrahieren, sie gegen einen handgeschriebenen Lösungsschlüssel zu prüfen und das Verhalten durch erneutes Ausführen zu bestätigen.",
       },
     ],
     additional: [
@@ -96,6 +101,8 @@ const de: Dictionary = {
       { name: "Lagerverwaltungssystem" },
       { name: "Testokur" },
       { name: "Voyage Data Recorder" },
+      { name: "ServisRotam" },
+      { name: "Sayiyo" },
     ],
   },
   missionLog: {
@@ -169,11 +176,11 @@ const de: Dictionary = {
       "Direkte Leitungen für Zusammenarbeit, Beratung und Missionseinladungen.",
   },
   cta: {
-    label: "Bereit für die nächste Mission?",
+    label: "Zusammenarbeiten",
     title: "Lasst uns etwas",
     titleAccent: "Belastbares bauen",
     description:
-      "Ob Infrastruktur skalieren, Backends härten oder Cloud-native Systeme entwerfen — ich bin bereit einzutauchen.",
+      "Sie suchen eine Senior-Rolle im Backend oder in angewandter KI, oder brauchen den Blick eines Operators auf U-Boot- und Unterwassersysteme? Schreiben Sie mir kurz, ich antworte innerhalb von zwei Werktagen.",
     contact: "Kontakt Aufnehmen",
   },
   footer: {

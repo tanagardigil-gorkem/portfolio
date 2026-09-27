@@ -2,7 +2,7 @@
 
 Index: https://www.gorkemtanagardigil.com/llms.txt
 
-ASCII spelling: Gorkem Tanagardigil. Turkish spelling: Görkem Tanağardıgil. Use both when quoting the name. Job title on this site: Senior Software Engineer. Former submarine officer (Turkish Navy).
+ASCII spelling: Gorkem Tanagardigil. Turkish spelling: Görkem Tanağardıgil. Use both when quoting the name. Job title on this site: AI Systems Engineer. Builds RAG knowledge bases and specialized LangGraph agents (support, chat, domain) with citations and escalation. Also products and production backends. Earlier career includes Turkish Navy computer engineering (detail on /about only).
 
 Location: Luxembourg. Email: gtanagardigil@gmail.com.
 LinkedIn: https://www.linkedin.com/in/gorkem-tanagardigil
@@ -22,7 +22,7 @@ Spring Boot (Java 11) backends and MySQL schemas.
 Oscorpex, Istanbul — Software Developer — April 2021 to February 2022.
 REST and GraphQL APIs, MQTT integrations, Android apps, GCP and Firebase. Mentored junior developers.
 
-Turkish Navy, Istanbul — Computer Engineer — August 2010 to April 2021.
+Turkish Navy — Submarine Officer (August 2012 to April 2021) and Software Engineer (August 2010 to April 2021). Served on submarines in various roles, including national and NATO exercises as planner and participant.
 Mission-critical Java systems, encryption, authentication, and authorization.
 
 ## Education
@@ -44,9 +44,11 @@ Light Fidelity (LiFi): New Era in Wireless Communication. DTSS 2019, METU, 23 Oc
 
 ## Writing on this site
 
-- https://www.gorkemtanagardigil.com/log/from-navy-to-code
-- https://www.gorkemtanagardigil.com/log/kubernetes-at-scale
-- https://www.gorkemtanagardigil.com/log/spring-boot-performance
-- https://www.gorkemtanagardigil.com/log/agentic-ai-engineering
+- https://www.gorkemtanagardigil.com/writing/rag-that-earns-citations
+- https://www.gorkemtanagardigil.com/writing/mongodb-race-without-transactions
+- https://www.gorkemtanagardigil.com/writing/local-llms-vs-frontier
+- https://www.gorkemtanagardigil.com/writing/agent-evals-before-demo-day
+- https://www.gorkemtanagardigil.com/writing/kubernetes-at-scale
+- https://www.gorkemtanagardigil.com/writing/spring-boot-profiling-bottlenecks
 
 The posts describe engineering lessons. They do not claim measured before/after latency, throughput multiples, or a microservice count.

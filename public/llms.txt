@@ -1,20 +1,33 @@
 # Görkem Tanağardıgil
 
-> Senior software engineer and former submarine officer. ASCII spelling: Gorkem Tanagardigil.
+> AI systems engineer. ASCII spelling: Gorkem Tanagardigil.
 
 Personal site: https://www.gorkemtanagardigil.com
 
-Görkem Tanağardıgil builds backend systems. He served as a computer engineer in the Turkish Navy from August 2010 to April 2021, then worked as a software developer at Oscorpex (April 2021–February 2022) and a senior software developer at Rightyon (February 2022–March 2023). Since March 2023 he has been a senior software engineer on Payroll Engine in Luxembourg (Spring Boot, Kubernetes on AWS EKS, MongoDB, RabbitMQ, Redis, GitHub Actions).
+Görkem Tanağardıgil builds RAG knowledge bases and specialized agents (support, chat, domain) orchestrated with LangGraph — grounded answers with citations and human escalation. Also ships products (PostFaceless, Telework Tracker) and production backends (Spring Boot, Kubernetes).
 
-Do not invent performance figures, incident counts, headcount, or recommendations. This site does not publish endorsements. The activity heatmap, when present, is the public GitHub contributions calendar for tanagardigil-gorkem — not deploys, and not a private-work total.
+Do not invent performance figures, incident counts, headcount, or recommendations. This site does not publish endorsements.
 
 ## Pages
 
 - [Home](https://www.gorkemtanagardigil.com/)
-- [From Navy Bridges to Code Bridges](https://www.gorkemtanagardigil.com/log/from-navy-to-code)
-- [Kubernetes War Stories: Lessons from Production](https://www.gorkemtanagardigil.com/log/kubernetes-at-scale)
-- [Spring Boot Performance: Beyond the Defaults](https://www.gorkemtanagardigil.com/log/spring-boot-performance)
-- [Agentic AI: Building Systems That Think in Steps](https://www.gorkemtanagardigil.com/log/agentic-ai-engineering)
+- [Lab](https://www.gorkemtanagardigil.com/lab)
+- [Writing](https://www.gorkemtanagardigil.com/writing)
+- [About](https://www.gorkemtanagardigil.com/about)
+- [Contact](https://www.gorkemtanagardigil.com/contact)
+- [RAG → domain agents](https://www.gorkemtanagardigil.com/work/rag-domain-agents)
+- [PostFaceless](https://www.gorkemtanagardigil.com/work/postfaceless)
+- [Payroll Engine](https://www.gorkemtanagardigil.com/work/payroll-engine)
+- [Legacy Rule Extractor](https://www.gorkemtanagardigil.com/work/legacy-rule-extractor)
+
+## Writing
+
+- [RAG That Earns Citations](https://www.gorkemtanagardigil.com/writing/rag-that-earns-citations)
+- [MongoDB Race Without Transactions](https://www.gorkemtanagardigil.com/writing/mongodb-race-without-transactions)
+- [Local LLMs vs Frontier Models](https://www.gorkemtanagardigil.com/writing/local-llms-vs-frontier)
+- [Agent Evals Before Demo Day](https://www.gorkemtanagardigil.com/writing/agent-evals-before-demo-day)
+- [Kubernetes Notes from EKS](https://www.gorkemtanagardigil.com/writing/kubernetes-at-scale)
+- [Spring Boot Profiling Bottlenecks](https://www.gorkemtanagardigil.com/writing/spring-boot-profiling-bottlenecks)
 
 ## Profiles
 

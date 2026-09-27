@@ -11,12 +11,12 @@ const en = {
     badge: "MISSION CONTROL: ONLINE",
     roles: [
       "Senior Software Engineer",
-      "Cloud Architect",
-      "Backend Specialist",
-      "Former Navy Officer",
+      "Former Submarine Officer",
+      "Backend & Cloud",
+      "Applied AI",
     ],
     description:
-      "Blending <accent>naval discipline</accent> with modern cloud engineering. I build resilient systems that stay online when the seas get rough.",
+      "Former submarine officer. I build systems that hold under pressure: <accent>mission-critical backends</accent> and applied AI that is tested before it is trusted.",
     viewMissions: "View Missions",
     openChannel: "Open Channel",
   },
@@ -34,9 +34,9 @@ const en = {
   },
   origin: {
     title: "Origin: Turkish Navy",
-    subtitle: "Computer Engineer & Officer | 2010 - 2021",
+    subtitle: "Submarine Officer & Software Engineer | 2010 - 2021",
     description:
-      "Where resilience was engineered. Developed mission-critical Java systems where stability was a necessity, not a feature. Implemented strict security encryption and authorization protocols.",
+      "Served on submarines in various roles, including national and NATO exercises as both planner and participant. Built software for mission-critical naval systems, including a Harpoon weapon-control simulator and a voyage data recorder.",
     badge: "NAVY OPS",
     tags: [
       "Mission-Critical Systems",
@@ -66,10 +66,10 @@ const en = {
         "Shipped REST/GraphQL APIs, MQTT-based IoT integrations, and Android apps with GCP/Firebase services while mentoring junior developers.",
     },
     {
-      role: "Computer Engineer",
+      role: "Submarine Officer & Software Engineer",
       period: "Aug 2010 - Apr 2021",
       summary:
-        "Engineered mission-critical Java systems with encryption/auth controls and stability-focused maintenance across on-prem and web platforms.",
+        "Served on submarines, including NATO exercises as planner and participant. Built mission-critical naval software with encryption and access controls.",
     },
   ],
   projects: {
@@ -82,10 +82,15 @@ const en = {
       },
       {
         description:
-          "Backend services and two Android applications delivered as a single platform.",
+          "AI video studio for faceless channels: one brief becomes a narrated long-form video and Shorts, reviewed by the creator, then scheduled to YouTube, TikTok and Instagram.",
       },
       {
-        description: "Backend services for a cloud-connected application.",
+        description:
+          "An app that helps cross-border workers track their telework days against yearly limits, on the phone and the wrist.",
+      },
+      {
+        description:
+          "An experiment in using AI to pull business rules out of legacy COBOL code, then checking them against a hand-written answer key and replaying them to confirm the behaviour matches.",
       },
     ],
     additional: [
@@ -94,6 +99,8 @@ const en = {
       { name: "Stock Management System" },
       { name: "Testokur" },
       { name: "Voyage Data Recorder" },
+      { name: "ServisRotam" },
+      { name: "Sayiyo" },
     ],
   },
   missionLog: {
@@ -167,11 +174,11 @@ const en = {
       "Direct lines for collaboration, advisories, and mission invites.",
   },
   cta: {
-    label: "Ready for the next mission?",
+    label: "Work with me",
     title: "Let's Build Something",
     titleAccent: "Resilient",
     description:
-      "Whether it's scaling infrastructure, hardening backends, or architecting cloud-native systems — I'm ready to dive in.",
+      "Hiring for a senior backend or applied-AI role, or need an operator's view on submarine and underwater systems? Send a short note and I'll reply within two business days.",
     contact: "Initiate Contact",
   },
   footer: {

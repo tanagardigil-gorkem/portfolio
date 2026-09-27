@@ -78,7 +78,7 @@ const COMMANDS: Record<string, () => Line[]> = {
     { type: "output", text: "  [2021-2022] Software Developer — Oscorpex" },
     { type: "output", text: "              REST/GraphQL APIs, IoT, Android" },
     { type: "output", text: "" },
-    { type: "output", text: "  [2010-2021] Computer Engineer — Turkish Navy" },
+    { type: "output", text: "  [2010-2021] Submarine Officer & Software Engineer — Turkish Navy" },
     { type: "output", text: "              Mission-critical Java systems & security" },
   ],
   projects: () => [

@@ -1,7 +1,5 @@
-import PortfolioShell from "../components/PortfolioShell";
-import { getGitHubActivity } from "../lib/github-contributions";
+import AgentConsoleShell from "../components/console/AgentConsoleShell";
 
-export default async function HomePage() {
-  const activity = await getGitHubActivity();
-  return <PortfolioShell activity={activity} />;
+export default function HomePage() {
+  return <AgentConsoleShell />;
 }

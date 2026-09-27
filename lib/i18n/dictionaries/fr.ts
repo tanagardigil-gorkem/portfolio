@@ -13,12 +13,12 @@ const fr: Dictionary = {
     badge: "CONTRÔLE DE MISSION : EN LIGNE",
     roles: [
       "Ingénieur Logiciel Senior",
-      "Architecte Cloud",
-      "Spécialiste Backend",
-      "Ancien Officier de Marine",
+      "Ancien Officier Sous-marinier",
+      "Backend & Cloud",
+      "IA Appliquée",
     ],
     description:
-      "Allier la <accent>discipline navale</accent> à l'ingénierie cloud moderne. Je construis des systèmes résilients qui restent en ligne quand la mer se déchaîne.",
+      "Ancien officier sous-marinier. Je construis des systèmes qui tiennent sous pression : <accent>backends critiques</accent> et IA appliquée, testée avant d'être adoptée.",
     viewMissions: "Voir les Missions",
     openChannel: "Ouvrir le Canal",
   },
@@ -36,9 +36,9 @@ const fr: Dictionary = {
   },
   origin: {
     title: "Origine : Marine Turque",
-    subtitle: "Ingénieur Informatique & Officier | 2010 - 2021",
+    subtitle: "Officier Sous-marinier & Ingénieur Logiciel | 2010 - 2021",
     description:
-      "Là où la résilience a été forgée. Développement de systèmes Java critiques où la stabilité était une nécessité, pas une fonctionnalité. Mise en œuvre de protocoles stricts de chiffrement et d'autorisation.",
+      "Service à bord de sous-marins dans divers rôles, dont des exercices nationaux et OTAN en tant que planificateur et participant. Développement de logiciels pour des systèmes navals critiques, dont un simulateur de conduite de tir Harpoon et un enregistreur de données de voyage.",
     badge: "OPS MARINE",
     tags: [
       "Systèmes Critiques",
@@ -68,10 +68,10 @@ const fr: Dictionary = {
         "Livraison d'APIs REST/GraphQL, d'intégrations IoT basées sur MQTT et d'applications Android avec des services GCP/Firebase, tout en mentorant les développeurs juniors.",
     },
     {
-      role: "Ingénieur Informatique",
+      role: "Officier Sous-marinier & Ingénieur Logiciel",
       period: "Août 2010 - Avr 2021",
       summary:
-        "Développement de systèmes Java critiques avec contrôles de chiffrement/autorisation et maintenance axée sur la stabilité sur des plateformes on-prem et web.",
+        "Service à bord de sous-marins, dont des exercices OTAN comme planificateur et participant. Développement de logiciels navals critiques avec chiffrement et contrôle d'accès.",
     },
   ],
   projects: {
@@ -84,10 +84,15 @@ const fr: Dictionary = {
       },
       {
         description:
-          "Services backend et deux applications Android livrés comme une plateforme unique.",
+          "Studio vidéo IA pour chaînes sans visage : un brief devient une vidéo longue narrée et des Shorts, validés par le créateur puis programmés sur YouTube, TikTok et Instagram.",
       },
       {
-        description: "Services backend pour une application connectée au cloud.",
+        description:
+          "Une app qui aide les travailleurs frontaliers à suivre leurs jours de télétravail par rapport aux plafonds annuels, sur téléphone et au poignet.",
+      },
+      {
+        description:
+          "Une expérience d'extraction de règles métier depuis du code COBOL existant grâce à l'IA, vérifiées ensuite contre un corrigé écrit à la main et rejouées pour confirmer le comportement.",
       },
     ],
     additional: [
@@ -96,6 +101,8 @@ const fr: Dictionary = {
       { name: "Système de Gestion des Stocks" },
       { name: "Testokur" },
       { name: "Enregistreur de Données de Voyage" },
+      { name: "ServisRotam" },
+      { name: "Sayiyo" },
     ],
   },
   missionLog: {
@@ -169,11 +176,11 @@ const fr: Dictionary = {
       "Lignes directes pour la collaboration, les conseils et les invitations de mission.",
   },
   cta: {
-    label: "Prêt pour la prochaine mission ?",
+    label: "Travaillons ensemble",
     title: "Construisons Quelque Chose de",
     titleAccent: "Résilient",
     description:
-      "Que ce soit pour scaler l'infrastructure, renforcer les backends ou architecturer des systèmes cloud-natifs — je suis prêt à plonger.",
+      "Vous recrutez pour un poste senior backend ou IA appliquée, ou vous cherchez un regard d'opérateur sur les systèmes sous-marins ? Envoyez-moi un court message, je réponds sous deux jours ouvrés.",
     contact: "Initier le Contact",
   },
   footer: {
